@@ -1,0 +1,6 @@
+{
+  "name": "My Study Space",
+  "description": "A private, minimal, premium study platform for university courses with comprehensive course material and practice questions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
