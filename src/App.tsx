@@ -7,8 +7,10 @@ import { PracticeQuizView } from './components/PracticeQuizView';
 import { SubjectHomeView } from './components/SubjectHomeView';
 import { HUKUM_ISLAM_METADATA, TOPICS_DATA } from './data/hukumIslamData';
 import { HUKUM_PEMDA_METADATA, PEMDA_TOPICS_DATA } from './data/hukumPemdaData';
+import { HUKUM_PTUN_METADATA, PTUN_TOPICS_DATA } from './data/hukumPtunData';
 import { PRACTICE_QUESTIONS } from './data/practiceQuestionsData';
 import { PEMDA_PRACTICE_QUESTIONS } from './data/hukumPemdaQuestionsData';
+import { PTUN_PRACTICE_QUESTIONS } from './data/hukumPtunQuestionsData';
 import siteBackgroundImg from './assets/images/site_background_1791021343659.jpg';
 
 export type AppView = 'home' | 'subject' | 'materi' | 'quiz';
@@ -39,6 +41,16 @@ export default function App() {
     }
   });
 
+  // Persistence: Studied topics for Hukum Acara PTUN
+  const [studiedTopicsPtun, setStudiedTopicsPtun] = useState<number[]>(() => {
+    try {
+      const saved = localStorage.getItem('my_study_space_studied_ptun');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
   // Persistence: Quiz answers for Hukum Islam
   const [userAnswersIslam, setUserAnswersIslam] = useState<Record<string, number>>(() => {
     try {
@@ -53,6 +65,16 @@ export default function App() {
   const [userAnswersPemda, setUserAnswersPemda] = useState<Record<string, number>>(() => {
     try {
       const saved = localStorage.getItem('my_study_space_quiz_answers_pemda');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Persistence: Quiz answers for Hukum Acara PTUN
+  const [userAnswersPtun, setUserAnswersPtun] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('my_study_space_quiz_answers_ptun');
       return saved ? JSON.parse(saved) : {};
     } catch {
       return {};
@@ -77,6 +99,14 @@ export default function App() {
 
   useEffect(() => {
     try {
+      localStorage.setItem('my_study_space_studied_ptun', JSON.stringify(studiedTopicsPtun));
+    } catch {
+      // ignore
+    }
+  }, [studiedTopicsPtun]);
+
+  useEffect(() => {
+    try {
       localStorage.setItem('my_study_space_quiz_answers', JSON.stringify(userAnswersIslam));
     } catch {
       // ignore
@@ -91,21 +121,80 @@ export default function App() {
     }
   }, [userAnswersPemda]);
 
+  useEffect(() => {
+    try {
+      localStorage.setItem('my_study_space_quiz_answers_ptun', JSON.stringify(userAnswersPtun));
+    } catch {
+      // ignore
+    }
+  }, [userAnswersPtun]);
+
   // Active Subject Configuration
   const isIslam = currentSubject === 'hukum-islam';
-  const activeSubjectTitle = isIslam ? 'Hukum Islam' : 'Hukum Pemda';
-  const activeMetadata = isIslam ? HUKUM_ISLAM_METADATA : HUKUM_PEMDA_METADATA;
-  const activeTopics = isIslam ? TOPICS_DATA : PEMDA_TOPICS_DATA;
-  const activeQuestions = isIslam ? PRACTICE_QUESTIONS : PEMDA_PRACTICE_QUESTIONS;
-  const activeStudiedTopics = isIslam ? studiedTopicsIslam : studiedTopicsPemda;
-  const activeUserAnswers = isIslam ? userAnswersIslam : userAnswersPemda;
-  const activeTopicUnitLabel = isIslam ? 'Topik' : 'Pertemuan';
+  const isPemda = currentSubject === 'hukum-pemda';
+  const isPtun = currentSubject === 'hukum-ptun';
+
+  const activeSubjectTitle = isIslam
+    ? 'Hukum Islam'
+    : isPemda
+    ? 'Hukum Pemerintahan Daerah'
+    : 'Hukum Acara Peradilan Tata Usaha Negara';
+
+  const activeShortTitle = isIslam
+    ? 'Hukum Islam'
+    : isPemda
+    ? 'Hukum Pemda'
+    : 'Hukum Acara PTUN';
+
+  const activeMetadata = isIslam
+    ? HUKUM_ISLAM_METADATA
+    : isPemda
+    ? HUKUM_PEMDA_METADATA
+    : HUKUM_PTUN_METADATA;
+
+  const activeTopics = isIslam
+    ? TOPICS_DATA
+    : isPemda
+    ? PEMDA_TOPICS_DATA
+    : PTUN_TOPICS_DATA;
+
+  const activeQuestions = isIslam
+    ? PRACTICE_QUESTIONS
+    : isPemda
+    ? PEMDA_PRACTICE_QUESTIONS
+    : PTUN_PRACTICE_QUESTIONS;
+
+  const activeStudiedTopics = isIslam
+    ? studiedTopicsIslam
+    : isPemda
+    ? studiedTopicsPemda
+    : studiedTopicsPtun;
+
+  const activeUserAnswers = isIslam
+    ? userAnswersIslam
+    : isPemda
+    ? userAnswersPemda
+    : userAnswersPtun;
+
+  const activeTopicUnitLabel = isPemda ? 'Pertemuan' : 'Topik';
+
+  const activeDescription = isIslam
+    ? 'Rangkuman Panduan Belajar UTS Komprehensif. Berfokus secara mendalam pada Topik 1 hingga Topik 5 berlandaskan rujukan Prof. Daud Ali & Prof. Hazairin.'
+    : isPemda
+    ? 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Mengkaji tatanan desentralisasi, pembagian urusan, dan otonomi asimetris berdasarkan rujukan M. Dahlan, S.H., M.H.'
+    : 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Membahas tuntas prosedur sengketa administrasi negara dari Pengantar hingga Replik.';
+
   const activeCurriculumNote = isIslam
     ? 'Pertanyaan berbasis materi resmi Silabus Topik 1–5 (Prof. Daud Ali & Prof. Hazairin).'
-    : 'Pertanyaan berbasis materi resmi Silabus Pertemuan 1–7 (M. Dahlan, S.H., M.H. — FH UB).';
+    : isPemda
+    ? 'Pertanyaan berbasis materi resmi Silabus Pertemuan 1–7 (M. Dahlan, S.H., M.H. — FH UB).'
+    : 'Pertanyaan komprehensif berbasis materi resmi Silabus Topik 1–8 (termasuk latihan soal persiapan UTS).';
+
   const activeReferenceNote = isIslam
     ? 'Rujukan Akademis: Prof. Daud Ali & Prof. Hazairin · Kurikulum Fakultas Hukum · Silabus RPS Sub CPMK 1 – 5'
-    : 'Rujukan Akademis: M. Dahlan, S.H., M.H. · Fakultas Hukum Universitas Brawijaya (FH UB) · RPS Sub-CPMK 1 – 7';
+    : isPemda
+    ? 'Rujukan Akademis: M. Dahlan, S.H., M.H. · Fakultas Hukum Universitas Brawijaya (FH UB) · RPS Sub-CPMK 1 – 7'
+    : 'Rujukan Akademis: Kurikulum Fakultas Hukum · Silabus Substantif Topik 1 – 8';
 
   // Navigation handlers
   const handleNavigate = (view: AppView) => {
@@ -148,8 +237,12 @@ export default function App() {
       setStudiedTopicsIslam((prev) =>
         prev.includes(topicId) ? prev.filter((id) => id !== topicId) : [...prev, topicId]
       );
-    } else {
+    } else if (isPemda) {
       setStudiedTopicsPemda((prev) =>
+        prev.includes(topicId) ? prev.filter((id) => id !== topicId) : [...prev, topicId]
+      );
+    } else {
+      setStudiedTopicsPtun((prev) =>
         prev.includes(topicId) ? prev.filter((id) => id !== topicId) : [...prev, topicId]
       );
     }
@@ -161,8 +254,13 @@ export default function App() {
         ...prev,
         [questionId]: optionIndex,
       }));
-    } else {
+    } else if (isPemda) {
       setUserAnswersPemda((prev) => ({
+        ...prev,
+        [questionId]: optionIndex,
+      }));
+    } else {
+      setUserAnswersPtun((prev) => ({
         ...prev,
         [questionId]: optionIndex,
       }));
@@ -177,10 +275,17 @@ export default function App() {
       } catch {
         // ignore
       }
-    } else {
+    } else if (isPemda) {
       setUserAnswersPemda({});
       try {
         localStorage.removeItem('my_study_space_quiz_answers_pemda');
+      } catch {
+        // ignore
+      }
+    } else {
+      setUserAnswersPtun({});
+      try {
+        localStorage.removeItem('my_study_space_quiz_answers_ptun');
       } catch {
         // ignore
       }
@@ -223,7 +328,7 @@ export default function App() {
         onNavigate={handleNavigate}
         studiedCount={activeStudiedTopics.length}
         totalTopics={activeTopics.length}
-        subjectTitle={activeSubjectTitle}
+        subjectTitle={activeShortTitle}
         topicUnitName={activeTopicUnitLabel.toLowerCase()}
       />
 
@@ -246,6 +351,8 @@ export default function App() {
                 totalTopicsIslam={TOPICS_DATA.length}
                 studiedCountPemda={studiedTopicsPemda.length}
                 totalTopicsPemda={PEMDA_TOPICS_DATA.length}
+                studiedCountPtun={studiedTopicsPtun.length}
+                totalTopicsPtun={PTUN_TOPICS_DATA.length}
               />
             </motion.div>
           )}
@@ -259,13 +366,9 @@ export default function App() {
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             >
               <SubjectHomeView
-                subjectTitle={isIslam ? 'Hukum Islam' : 'Hukum Pemerintahan Daerah'}
+                subjectTitle={activeSubjectTitle}
                 metadata={activeMetadata}
-                description={
-                  isIslam
-                    ? 'Rangkuman Panduan Belajar UTS Komprehensif. Berfokus secara mendalam pada Topik 1 hingga Topik 5 berlandaskan rujukan Prof. Daud Ali & Prof. Hazairin.'
-                    : 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Mengkaji tatanan desentralisasi, pembagian urusan, dan otonomi asimetris berdasarkan rujukan M. Dahlan, S.H., M.H.'
-                }
+                description={activeDescription}
                 topics={activeTopics}
                 studiedTopics={activeStudiedTopics}
                 onToggleTopicStudied={handleToggleTopicStudied}
@@ -314,7 +417,7 @@ export default function App() {
                 onOpenMateri={(topicId) => handleOpenMateri(currentSubject, topicId)}
                 questions={activeQuestions}
                 topics={activeTopics}
-                subjectTitle={isIslam ? 'Hukum Islam' : 'Hukum Pemerintahan Daerah'}
+                subjectTitle={activeSubjectTitle}
                 topicUnitLabel={activeTopicUnitLabel}
                 curriculumNote={activeCurriculumNote}
               />
@@ -328,7 +431,7 @@ export default function App() {
         <div className="mx-auto max-w-4xl px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span>My Study Space · Private Academic Study Sanctuary</span>
           <div className="flex items-center gap-2 text-slate-500">
-            <span>{isIslam ? 'Hukum Islam' : 'Hukum Pemerintahan Daerah'}</span>
+            <span>{activeSubjectTitle}</span>
             <span aria-hidden="true" className="text-slate-700">·</span>
             <span>{activeMetadata.syllabus}</span>
             <span aria-hidden="true" className="text-slate-700">·</span>
