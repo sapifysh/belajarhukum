@@ -188,8 +188,8 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#07090e] text-[#e2e8f0] flex flex-col font-sans selection:bg-slate-700 selection:text-white antialiased">
-      {/* Site Background Wallpaper with subtle atmospheric depth */}
+    <div className="relative min-h-screen bg-[#07090e] text-[#e2e8f0] flex flex-col font-sans selection:bg-slate-700 selection:text-white antialiased overflow-x-hidden w-full">
+      {/* Site Background Wallpaper with subtle atmospheric depth (calmer and reduced glare on mobile) */}
       <div
         className="fixed inset-0 pointer-events-none overflow-hidden z-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${siteBackgroundImg})` }}
@@ -199,7 +199,7 @@ export default function App() {
           src={siteBackgroundImg}
           alt="Site background texture"
           referrerPolicy="no-referrer"
-          className="w-full h-full object-cover object-center select-none scale-[1.03] transform-gpu"
+          className="w-full h-full object-cover object-center select-none scale-[1.03] transform-gpu opacity-80 sm:opacity-100 saturate-[0.85] sm:saturate-100 transition-all duration-300"
           onError={(e) => {
             const target = e.currentTarget;
             if (!target.src.endsWith('/site-background.jpg')) {
@@ -207,16 +207,14 @@ export default function App() {
             }
           }}
         />
-        {/* Invisible Reading Zone Shield - Darkest at center (rgba 5,8,18 ~0.76), softly feathered out towards flanks */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 960px 100% at 50% 50%, rgba(5, 8, 18, 0.78) 0%, rgba(5, 8, 18, 0.62) 40%, rgba(5, 8, 18, 0.18) 75%, transparent 100%)',
-          }}
-        />
+        {/* Mobile atmospheric calming tint - keeps edges vibrant while toning down central busy highlights */}
+        <div className="absolute inset-0 bg-[#07090e]/35 sm:hidden" />
+
+        {/* Invisible Reading Zone Shield - Darkest at center (rgba 5,8,18 ~0.88 on mobile, ~0.78 on desktop), feathered towards flanks */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_100%_at_50%_50%,rgba(5,8,18,0.88)_0%,rgba(5,8,18,0.70)_50%,rgba(5,8,18,0.2)_80%,transparent_100%)] sm:bg-[radial-gradient(ellipse_960px_100%_at_50%_50%,rgba(5,8,18,0.78)_0%,rgba(5,8,18,0.62)_40%,rgba(5,8,18,0.18)_75%,transparent_100%)]" />
+
         {/* Subtle vertical vignette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#07090e]/75 via-transparent to-[#07090e]/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07090e]/85 sm:from-[#07090e]/75 via-transparent to-[#07090e]/90 sm:to-[#07090e]/85" />
       </div>
 
       {/* Floating Apple Liquid Glass Navbar */}

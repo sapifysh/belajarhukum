@@ -38,10 +38,10 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
   const totalTopics = topics.length;
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
+    <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 sm:py-16">
       {/* Subject Header */}
-      <div className="mb-10 sm:mb-12 border-b border-white/[0.06] pb-8">
-        <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-3">
+      <div className="mb-8 sm:mb-12 border-b border-white/[0.06] pb-6 sm:pb-8">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[12px] sm:text-xs text-slate-400 mb-2.5 sm:mb-3">
           <span>{metadata.faculty}</span>
           <span aria-hidden="true" className="text-slate-600">·</span>
           <span>{metadata.courseCode}</span>
@@ -57,21 +57,21 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
           )}
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-light text-white tracking-tight">
+        <h1 className="text-[26px] sm:text-4xl font-medium sm:font-light text-white tracking-tight">
           {subjectTitle}
         </h1>
-        <p className="mt-2 text-sm sm:text-base text-slate-400 font-light max-w-2xl leading-relaxed">
+        <p className="mt-1.5 sm:mt-2 text-[14px] sm:text-base text-slate-400 font-light max-w-2xl leading-relaxed">
           {description}
         </p>
 
         {/* Subtle Progress Bar & Indicator */}
-        <div className="mt-6 flex items-center justify-between text-xs text-slate-400">
+        <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 text-xs text-slate-400">
           <div className="flex items-center gap-2">
             <span className="font-normal text-slate-300">
               {completedCount} dari {totalTopics} {topicUnitLabel} selesai dipelajari
             </span>
           </div>
-          <div className="w-32 sm:w-44 bg-slate-800/80 rounded-full h-1.5 overflow-hidden p-0.5 border border-white/[0.05]">
+          <div className="w-full sm:w-44 bg-slate-800/80 rounded-full h-1.5 overflow-hidden p-0.5 border border-white/[0.05]">
             <div
               className="bg-white/80 h-full rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
               style={{ width: `${(completedCount / Math.max(1, totalTopics)) * 100}%` }}
@@ -81,20 +81,20 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
       </div>
 
       {/* Two Primary Options (Immediately Obvious in Liquid Glass) */}
-      <div className="mb-14">
-        <h2 className="text-xs font-semibold tracking-wider uppercase text-slate-400 mb-4">
+      <div className="mb-10 sm:mb-14">
+        <h2 className="text-xs font-semibold tracking-wider uppercase text-slate-400 mb-3.5 sm:mb-4">
           PILIHAN BELAJAR
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
           {/* Card 1: Materi */}
           <button
             onClick={() => onOpenMateri(1)}
-            className="group relative rounded-2xl liquid-glass-card p-6 sm:p-7 text-left transition-all duration-300 active:scale-[0.99] overflow-hidden"
+            className="group relative rounded-[22px] sm:rounded-2xl liquid-glass-card p-5 sm:p-7 text-left transition-all duration-300 active:scale-[0.99] overflow-hidden"
           >
             {/* Top specular highlight */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
 
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-3.5 sm:mb-4">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.06] border border-white/[0.1] text-slate-200 group-hover:bg-white/[0.1] group-hover:text-white transition-all duration-200 shadow-sm">
                 <BookOpen className="h-5 w-5" />
               </div>
@@ -103,7 +103,7 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
               </span>
             </div>
 
-            <h3 className="text-xl font-medium text-white tracking-tight mb-2 flex items-center justify-between">
+            <h3 className="text-lg sm:text-xl font-medium text-white tracking-tight mb-1.5 sm:mb-2 flex items-center justify-between">
               <span>Materi</span>
               <ChevronRight className="h-4 w-4 text-slate-400 group-hover:translate-x-1 group-hover:text-white transition-all duration-200" />
             </h3>
@@ -115,12 +115,12 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
           {/* Card 2: Latihan Soal */}
           <button
             onClick={() => onOpenQuiz()}
-            className="group relative rounded-2xl liquid-glass-card p-6 sm:p-7 text-left transition-all duration-300 active:scale-[0.99] overflow-hidden"
+            className="group relative rounded-[22px] sm:rounded-2xl liquid-glass-card p-5 sm:p-7 text-left transition-all duration-300 active:scale-[0.99] overflow-hidden"
           >
             {/* Top specular highlight */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
 
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-3.5 sm:mb-4">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.06] border border-white/[0.1] text-slate-200 group-hover:bg-white/[0.1] group-hover:text-white transition-all duration-200 shadow-sm">
                 <CheckSquare className="h-5 w-5" />
               </div>
@@ -129,7 +129,7 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
               </span>
             </div>
 
-            <h3 className="text-xl font-medium text-white tracking-tight mb-2 flex items-center justify-between">
+            <h3 className="text-lg sm:text-xl font-medium text-white tracking-tight mb-1.5 sm:mb-2 flex items-center justify-between">
               <span>Latihan Soal</span>
               <ChevronRight className="h-4 w-4 text-slate-400 group-hover:translate-x-1 group-hover:text-white transition-all duration-200" />
             </h3>
@@ -142,7 +142,7 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
 
       {/* Topics Overview List */}
       <div>
-        <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+        <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-3.5 sm:mb-4">
           <h2 className="text-xs font-semibold tracking-wider uppercase text-slate-400">
             DAFTAR {topicUnitLabel === 'pertemuan' ? 'PERTEMUAN' : 'TOPIK'} MATERI (1 – {totalTopics})
           </h2>
@@ -151,18 +151,18 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
           </span>
         </div>
 
-        <div className="divide-y divide-white/[0.06] rounded-2xl liquid-glass-panel overflow-hidden">
+        <div className="divide-y divide-white/[0.06] rounded-[22px] sm:rounded-2xl liquid-glass-panel overflow-hidden">
           {topics.map((topic) => {
             const isStudied = studiedTopics.includes(topic.id);
             return (
               <div
                 key={topic.id}
-                className="flex items-center justify-between p-4 sm:p-5 hover:bg-white/[0.03] transition-all duration-200"
+                className="flex items-center justify-between p-3.5 sm:p-5 hover:bg-white/[0.03] transition-all duration-200"
               >
-                <div className="flex items-start gap-4 flex-1 pr-4">
+                <div className="flex items-start gap-2 sm:gap-4 flex-1 pr-2 sm:pr-4">
                   <button
                     onClick={() => onToggleTopicStudied(topic.id)}
-                    className="mt-0.5 text-slate-400 hover:text-slate-200 transition-transform active:scale-90"
+                    className="min-w-[44px] min-h-[44px] flex items-center justify-center -ml-2 -mt-2 text-slate-400 hover:text-slate-200 transition-transform active:scale-90 shrink-0"
                     title={isStudied ? 'Tandai belum dipelajari' : 'Tandai sudah dipelajari'}
                     aria-label={isStudied ? 'Tandai belum dipelajari' : 'Tandai sudah dipelajari'}
                   >
@@ -175,7 +175,7 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
 
                   <div
                     onClick={() => onOpenMateri(topic.id)}
-                    className="cursor-pointer flex-1"
+                    className="cursor-pointer flex-1 py-1"
                   >
                     <div className="text-[11px] font-mono tracking-wider text-slate-400 mb-0.5">
                       {topic.numberStr}
@@ -183,13 +183,13 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
                     <h3 className="text-sm sm:text-base font-normal text-white hover:text-slate-200 transition-colors">
                       {topic.title}
                     </h3>
-                    <p className="mt-1 text-xs text-slate-400 font-light line-clamp-1">
+                    <p className="mt-0.5 text-xs text-slate-400 font-light line-clamp-1">
                       {topic.shortDesc}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 sm:gap-2 shrink-0">
                   <button
                     onClick={() => onOpenQuiz(topic.id)}
                     className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs text-slate-400 hover:text-white hover:bg-white/[0.06] border border-transparent hover:border-white/[0.1] transition-all duration-200 active:scale-95"
@@ -198,7 +198,7 @@ export const SubjectHomeView: React.FC<SubjectHomeViewProps> = ({
                   </button>
                   <button
                     onClick={() => onOpenMateri(topic.id)}
-                    className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.06] border border-transparent hover:border-white/[0.1] transition-all duration-200 active:scale-95"
+                    className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.06] transition-all duration-200 active:scale-90 shrink-0"
                     title="Buka topik"
                   >
                     <ChevronRight className="h-4 w-4" />

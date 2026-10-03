@@ -55,12 +55,12 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
   const nextTopic = currentIdx < topics.length - 1 ? topics[currentIdx + 1] : null;
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 font-['Inter',sans-serif]">
+    <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 sm:py-12 font-['Inter',sans-serif]">
       {/* Top Topic Switcher Bar: Floating Glass Pill Container */}
-      <div className="mb-10 sm:mb-12 p-2 sm:p-2.5 rounded-2xl liquid-glass-panel">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="mb-8 sm:mb-12 p-2 sm:p-2.5 rounded-[22px] sm:rounded-2xl liquid-glass-panel">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3">
           {/* Segmented Topic Pills */}
-          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
             {topics.map((t) => {
               const active = t.id === currentTopic.id;
               const completed = studiedTopics.includes(t.id);
@@ -71,7 +71,7 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
                     onSelectTopic(t.id);
                     setSearchQuery('');
                   }}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[13px] font-medium whitespace-nowrap transition-all duration-200 active:scale-95 ${
+                  className={`flex items-center gap-1.5 min-h-[40px] px-3.5 py-1.5 rounded-xl text-[12px] sm:text-[13px] font-medium whitespace-nowrap transition-all duration-200 active:scale-95 shrink-0 ${
                     active
                       ? 'bg-white/[0.14] text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_4px_12px_rgba(0,0,0,0.3)] border border-white/[0.14]'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
@@ -87,10 +87,10 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
           </div>
 
           {/* Reading Customization Controls */}
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center justify-end gap-2 shrink-0">
             <button
               onClick={() => setFontSize(fontSize === 'normal' ? 'large' : 'normal')}
-              className={`p-1.5 sm:px-3 sm:py-1.5 rounded-xl text-[12px] font-medium border border-white/[0.08] transition-all duration-200 active:scale-95 flex items-center gap-1.5 ${
+              className={`min-h-[40px] px-3 py-1.5 rounded-xl text-[12px] font-medium border border-white/[0.08] transition-all duration-200 active:scale-95 flex items-center gap-1.5 ${
                 fontSize === 'large'
                   ? 'bg-white/[0.12] text-white border-white/[0.18]'
                   : 'text-slate-400 hover:text-slate-200 bg-white/[0.02]'
@@ -98,27 +98,25 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
               title="Sesuaikan Ukuran Font"
             >
               <Type className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">
-                {fontSize === 'large' ? 'Font: 18px' : 'Font: 17px'}
-              </span>
+              <span>{fontSize === 'large' ? 'Font: 18px' : 'Font: 16px'}</span>
             </button>
           </div>
         </div>
 
         {/* Quick Search within this topic */}
-        <div className="relative mt-2.5">
-          <Search className="absolute left-3.5 top-2.5 h-3.5 w-3.5 text-slate-500" />
+        <div className="relative mt-2 sm:mt-2.5">
+          <Search className="absolute left-3.5 top-3 h-3.5 w-3.5 text-slate-500" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Cari konsep dalam materi ini..."
-            className="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] pl-9 pr-8 py-2 text-[13px] text-slate-200 placeholder:text-slate-500 focus:border-white/20 focus:bg-white/[0.04] focus:outline-none transition-all"
+            className="w-full h-[42px] rounded-xl border border-white/[0.06] bg-white/[0.02] pl-9 pr-8 py-2 text-[13px] text-slate-200 placeholder:text-slate-500 focus:border-white/20 focus:bg-white/[0.04] focus:outline-none transition-all"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-2.5 text-slate-500 hover:text-slate-300 transition-colors"
+              className="absolute right-3 top-2.5 h-7 w-7 flex items-center justify-center text-slate-500 hover:text-slate-300 transition-colors"
             >
               <X className="h-3.5 w-3.5" />
             </button>
@@ -126,40 +124,40 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
         </div>
       </div>
 
-      {/* Centered Editorial Reading Column (680–740px maximum width) */}
+      {/* Centered Editorial Reading Column */}
       <div className="relative mx-auto max-w-[720px]">
-        {/* Invisible Reading Zone Feathered Backdrop - Soft dark aura with zero visible boundaries/cards */}
+        {/* Invisible Reading Zone Feathered Backdrop - Strengthened on mobile for crystal readability */}
         <div
           aria-hidden="true"
-          className="absolute -inset-y-12 -inset-x-8 sm:-inset-x-24 pointer-events-none -z-10"
+          className="absolute -inset-y-12 -inset-x-4 sm:-inset-x-24 pointer-events-none -z-10"
           style={{
             background:
-              'radial-gradient(ellipse at 50% 50%, rgba(5, 8, 18, 0.45) 0%, rgba(5, 8, 18, 0.25) 55%, transparent 85%)',
+              'radial-gradient(ellipse at 50% 50%, rgba(5, 8, 18, 0.78) 0%, rgba(5, 8, 18, 0.55) 55%, rgba(5, 8, 18, 0.25) 80%, transparent 100%)',
           }}
         />
 
-        {/* Topic Title Block according to exact typography specs */}
-        <header className="mb-12 sm:mb-16">
-          {/* Topic Number Label: 14px, weight 500, slight tracking, uppercase, muted */}
-          <div className="text-[14px] font-medium tracking-[0.08em] text-slate-400 uppercase mb-3 [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]">
+        {/* Topic Title Block */}
+        <header className="mb-10 sm:mb-16">
+          {/* Topic Number Label: 13-14px, weight 500, slight tracking, uppercase, muted */}
+          <div className="text-[13px] sm:text-[14px] font-medium tracking-[0.08em] text-slate-400 uppercase mb-2 sm:mb-3 [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]">
             {currentTopic.numberStr}
           </div>
 
-          {/* Topic Main Title: 38-44px desktop, 30-34px mobile, weight 600, line-height 1.15, tracking -0.02em */}
-          <h1 className="text-[30px] sm:text-[36px] md:text-[42px] font-semibold text-white tracking-[-0.02em] leading-[1.15] text-left uppercase [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]">
+          {/* Topic Main Title: 28-32px mobile, 38-44px desktop, weight 600, line-height 1.16 */}
+          <h1 className="text-[28px] sm:text-[36px] md:text-[42px] font-semibold text-white tracking-[-0.02em] leading-[1.16] sm:leading-[1.15] text-left uppercase [text-shadow:0_1px_8px_rgba(0,0,0,0.4)]">
             {currentTopic.title}
           </h1>
 
-          {/* Subtitle / Topic Summary: 16-17px, font weight 400, leading 1.75, near-white */}
-          <p className="mt-4 text-[16px] sm:text-[17px] font-normal text-white/85 tracking-[-0.005em] leading-[1.75] text-left [text-shadow:0_1px_6px_rgba(0,0,0,0.3)]">
+          {/* Subtitle / Topic Summary: 15-16px mobile, 16-17px desktop, leading 1.72 */}
+          <p className="mt-3 sm:mt-4 text-[15px] sm:text-[17px] font-normal text-white/85 tracking-[-0.005em] leading-[1.72] sm:leading-[1.75] text-left [text-shadow:0_1px_6px_rgba(0,0,0,0.3)]">
             {currentTopic.shortDesc}
           </p>
 
           {/* Status & Actions Bar in subtle liquid glass */}
-          <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-y border-white/[0.08] py-3.5 text-[13px]">
+          <div className="mt-6 sm:mt-7 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-y border-white/[0.08] py-3 sm:py-3.5 text-[13px]">
             <button
               onClick={() => onToggleTopicStudied(currentTopic.id)}
-              className="flex items-center gap-2 text-slate-300 hover:text-white transition-all duration-200 active:scale-95"
+              className="min-h-[44px] flex items-center gap-2 text-slate-300 hover:text-white transition-all duration-200 active:scale-95"
             >
               {isStudied ? (
                 <>
@@ -176,7 +174,7 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
 
             <button
               onClick={() => onOpenQuizForTopic(currentTopic.id)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.09] border border-white/[0.08] hover:border-white/[0.16] text-slate-200 transition-all duration-200 active:scale-95 font-medium text-[12px]"
+              className="min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.1] hover:border-white/[0.18] text-slate-200 transition-all duration-200 active:scale-95 font-medium text-[13px] sm:text-[12px]"
             >
               <CheckSquare className="h-3.5 w-3.5 text-slate-400" />
               <span>Latihan Soal {topicUnitLabel} {currentTopic.id}</span>
@@ -184,12 +182,12 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
           </div>
         </header>
 
-        {/* Main Content Stream: Clean Academic Reading Flow Floating Directly on Atmosphere */}
+        {/* Main Content Stream: Clean Academic Reading Flow */}
         <article
-          className={`space-y-12 sm:space-y-14 ${
+          className={`space-y-10 sm:space-y-14 ${
             fontSize === 'large'
-              ? 'text-[17.5px] sm:text-[18.5px] leading-[1.85]'
-              : 'text-[16px] sm:text-[17px] leading-[1.82]'
+              ? 'text-[17px] sm:text-[18.5px] leading-[1.82] sm:leading-[1.85]'
+              : 'text-[15.5px] sm:text-[17px] leading-[1.75] sm:leading-[1.82]'
           }`}
         >
           {filteredSections.length === 0 ? (
@@ -204,39 +202,39 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-20px' }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className={sIdx > 0 ? 'pt-10 sm:pt-14 border-t border-white/[0.06]' : ''}
+                className={sIdx > 0 ? 'pt-8 sm:pt-14 border-t border-white/[0.06]' : ''}
               >
-                {/* Section Heading: 28-32px, weight 600, near-white, generous spacing */}
-                <h2 className="text-[25px] sm:text-[28px] md:text-[31px] font-semibold text-[#f8fafc] tracking-[-0.015em] leading-[1.28] text-left mb-5 sm:mb-6 [text-shadow:0_1px_8px_rgba(0,0,0,0.35)]">
+                {/* Section Heading: 24-28px mobile, 28-31px desktop */}
+                <h2 className="text-[23px] sm:text-[28px] md:text-[31px] font-semibold text-[#f8fafc] tracking-[-0.015em] leading-[1.28] text-left mb-4 sm:mb-6 [text-shadow:0_1px_8px_rgba(0,0,0,0.35)]">
                   {section.title}
                 </h2>
 
-                {/* Subheadings: 18-20px, font weight 600, leading 1.4 */}
+                {/* Subheadings: 18-20px */}
                 {section.subtitle && (
-                  <h3 className="text-[19px] sm:text-[20px] font-semibold text-slate-100 tracking-[-0.01em] leading-[1.4] text-left mb-4 [text-shadow:0_1px_6px_rgba(0,0,0,0.3)]">
+                  <h3 className="text-[18px] sm:text-[20px] font-semibold text-slate-100 tracking-[-0.01em] leading-[1.4] text-left mb-3 sm:mb-4 [text-shadow:0_1px_6px_rgba(0,0,0,0.3)]">
                     {section.subtitle}
                   </h3>
                 )}
 
-                {/* Body Text: 16-17px, weight 400, line-height 1.75-1.85, color rgba(255,255,255,0.85), left-aligned, 14-18px between paragraphs */}
-                <div className="space-y-4 text-white/85 font-normal tracking-[-0.005em] text-left">
+                {/* Body Text: 15-16px mobile, 16-17px desktop, 14-18px paragraph spacing */}
+                <div className="space-y-3.5 sm:space-y-4 text-white/85 font-normal tracking-[-0.005em] text-left">
                   {section.content.map((p, pIdx) => {
                     if (!p.trim()) return null;
                     return (
-                      <p key={pIdx} className="leading-[1.82] [text-shadow:0_1px_6px_rgba(0,0,0,0.28)]">
+                      <p key={pIdx} className="leading-[1.75] sm:leading-[1.82] [text-shadow:0_1px_6px_rgba(0,0,0,0.28)]">
                         {p}
                       </p>
                     );
                   })}
                 </div>
 
-                {/* Lists: 16px, weight 400, line height 1.7-1.8, comfortable indentation */}
+                {/* Lists: comfortable indentation */}
                 {section.keyPoints && section.keyPoints.length > 0 && (
-                  <div className="pl-4 sm:pl-5 border-l border-white/20 my-6 space-y-3">
+                  <div className="pl-3.5 sm:pl-5 border-l border-white/20 my-5 sm:my-6 space-y-2.5 sm:space-y-3">
                     {section.keyPoints.map((pt, ptIdx) => (
                       <div
                         key={ptIdx}
-                        className="text-[16px] sm:text-[16.5px] text-white/85 font-normal leading-[1.78] text-left flex items-start gap-3 [text-shadow:0_1px_6px_rgba(0,0,0,0.28)]"
+                        className="text-[15px] sm:text-[16.5px] text-white/85 font-normal leading-[1.75] sm:leading-[1.78] text-left flex items-start gap-2.5 sm:gap-3 [text-shadow:0_1px_6px_rgba(0,0,0,0.28)]"
                       >
                         <span className="text-slate-400 font-semibold select-none mt-0.5">•</span>
                         <span className="flex-1">{pt}</span>
@@ -245,42 +243,42 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
                   </div>
                 )}
 
-                {/* Definitions / Highlight Callout: Subtle Liquid Glass callout */}
+                {/* Definitions / Highlight Callout */}
                 {section.highlightBox && (
-                  <div className="rounded-2xl liquid-glass-panel p-5 sm:p-6 my-7 relative overflow-hidden border border-white/[0.08]">
+                  <div className="rounded-[20px] sm:rounded-2xl liquid-glass-panel p-4 sm:p-6 my-6 sm:my-7 relative overflow-hidden border border-white/[0.08]">
                     <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
-                    <div className="text-[13px] font-semibold uppercase tracking-[0.06em] text-white mb-2 [text-shadow:0_1px_6px_rgba(0,0,0,0.4)]">
+                    <div className="text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.06em] text-white mb-1.5 sm:mb-2 [text-shadow:0_1px_6px_rgba(0,0,0,0.4)]">
                       {section.highlightBox.title}
                     </div>
-                    <div className="text-[16px] text-white/85 font-normal leading-[1.78] text-left [text-shadow:0_1px_6px_rgba(0,0,0,0.28)]">
+                    <div className="text-[15px] sm:text-[16px] text-white/85 font-normal leading-[1.75] sm:leading-[1.78] text-left [text-shadow:0_1px_6px_rgba(0,0,0,0.28)]">
                       {section.highlightBox.text}
                     </div>
                   </div>
                 )}
 
-                {/* Comparison Boxes: Clean Editorial Panels */}
+                {/* Comparison Boxes */}
                 {section.comparisonBoxes && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-7">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 my-6 sm:my-7">
                     {section.comparisonBoxes.map((box, bIdx) => (
                       <div
                         key={bIdx}
-                        className="rounded-2xl liquid-glass-card p-5 sm:p-6 flex flex-col justify-between border border-white/[0.08]"
+                        className="rounded-[20px] sm:rounded-2xl liquid-glass-card p-4 sm:p-6 flex flex-col justify-between border border-white/[0.08]"
                       >
                         <div>
-                          <h4 className="text-[17px] font-semibold text-white tracking-[-0.01em] leading-[1.4] mb-2 text-left [text-shadow:0_1px_6px_rgba(0,0,0,0.35)]">
+                          <h4 className="text-[16.5px] sm:text-[17px] font-semibold text-white tracking-[-0.01em] leading-[1.4] mb-1.5 sm:mb-2 text-left [text-shadow:0_1px_6px_rgba(0,0,0,0.35)]">
                             {box.title}
                           </h4>
-                          <p className="text-[14px] text-slate-300 font-normal leading-[1.6] mb-4 text-left">
+                          <p className="text-[13.5px] sm:text-[14px] text-slate-300 font-normal leading-[1.6] mb-3.5 sm:mb-4 text-left">
                             {box.description}
                           </p>
-                          <ul className="space-y-3">
+                          <ul className="space-y-2.5 sm:space-y-3">
                             {box.items.map((item, itemIdx) => (
                               <li
                                 key={itemIdx}
-                                className="text-[15px] sm:text-[15.5px] text-white/85 font-normal leading-[1.7] text-left flex items-start gap-2.5 [text-shadow:0_1px_5px_rgba(0,0,0,0.25)]"
+                                className="text-[14.5px] sm:text-[15.5px] text-white/85 font-normal leading-[1.68] sm:leading-[1.7] text-left flex items-start gap-2.5 [text-shadow:0_1px_5px_rgba(0,0,0,0.25)]"
                               >
                                 <span className="text-slate-400 font-bold select-none mt-0.5">•</span>
-                                <span className="flex-1 leading-[1.7]">{item}</span>
+                                <span className="flex-1 leading-[1.68] sm:leading-[1.7]">{item}</span>
                               </li>
                             ))}
                           </ul>
@@ -290,16 +288,16 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
                   </div>
                 )}
 
-                {/* Formatted Comparison Tables: Inter 14-15px, line height 1.5-1.6, header weight 600, body 400 */}
+                {/* Formatted Comparison Tables: responsive horizontal scrolling */}
                 {section.table && (
-                  <div className="overflow-x-auto rounded-2xl liquid-glass-panel my-7 border border-white/[0.08] overflow-hidden">
-                    <table className="w-full text-left text-[14px] sm:text-[14.5px] font-['Inter',sans-serif]">
+                  <div className="overflow-x-auto rounded-[18px] sm:rounded-2xl liquid-glass-panel my-6 sm:my-7 border border-white/[0.08] no-scrollbar">
+                    <table className="w-full text-left text-[13.5px] sm:text-[14.5px] font-['Inter',sans-serif]">
                       <thead>
                         <tr className="border-b border-white/[0.08] bg-white/[0.04]">
                           {section.table.headers.map((h, hIdx) => (
                             <th
                               key={hIdx}
-                              className="px-4 py-3.5 font-semibold text-white whitespace-nowrap leading-[1.55]"
+                              className="px-3.5 sm:px-4 py-3 sm:py-3.5 font-semibold text-white whitespace-nowrap leading-[1.55]"
                             >
                               {h}
                             </th>
@@ -312,7 +310,7 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
                             {row.map((cell, cIdx) => (
                               <td
                                 key={cIdx}
-                                className={`px-4 py-3.5 align-top leading-[1.6] ${
+                                className={`px-3.5 sm:px-4 py-3 sm:py-3.5 align-top leading-[1.6] ${
                                   cIdx === 0
                                     ? 'font-semibold text-white whitespace-nowrap'
                                     : 'font-normal text-white/85'
@@ -332,29 +330,29 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
           )}
         </article>
 
-        {/* References / Footnote: 12-13px, muted, subordinate */}
-        <div className="mt-14 pt-6 border-t border-white/[0.06] text-[12px] sm:text-[13px] text-slate-400 font-normal leading-[1.5] text-left">
+        {/* References / Footnote */}
+        <div className="mt-10 sm:mt-14 pt-5 sm:pt-6 border-t border-white/[0.06] text-[12px] sm:text-[13px] text-slate-400 font-normal leading-[1.5] text-left">
           <span>{referenceNote}</span>
         </div>
 
         {/* Bottom Navigation: Previous and Next Topic */}
-        <div className="mt-10 pt-6 border-t border-white/[0.08] flex items-center justify-between gap-4">
+        <div className="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
           {prevTopic ? (
             <button
               onClick={() => {
                 onSelectTopic(prevTopic.id);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="flex items-center gap-2.5 px-4 py-3 rounded-xl border border-white/[0.08] hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.06] text-[13px] text-slate-300 hover:text-white transition-all duration-200 active:scale-95"
+              className="min-h-[48px] flex items-center gap-2.5 px-4 py-3 rounded-xl border border-white/[0.08] hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.06] text-[13px] text-slate-300 hover:text-white transition-all duration-200 active:scale-95"
             >
-              <ArrowLeft className="h-3.5 w-3.5" />
+              <ArrowLeft className="h-3.5 w-3.5 shrink-0" />
               <div className="text-left">
                 <div className="text-[11px] text-slate-400 font-medium">{prevTopic.numberStr}</div>
-                <div className="font-normal truncate max-w-[140px] sm:max-w-xs">{prevTopic.title}</div>
+                <div className="font-normal truncate max-w-[220px] sm:max-w-xs">{prevTopic.title}</div>
               </div>
             </button>
           ) : (
-            <div />
+            <div className="hidden sm:block" />
           )}
 
           {nextTopic ? (
@@ -363,18 +361,18 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
                 onSelectTopic(nextTopic.id);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="flex items-center gap-2.5 px-4 py-3 rounded-xl border border-white/[0.08] hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.06] text-[13px] text-slate-300 hover:text-white transition-all duration-200 active:scale-95 text-right"
+              className="min-h-[48px] flex items-center justify-between sm:justify-end gap-2.5 px-4 py-3 rounded-xl border border-white/[0.08] hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.06] text-[13px] text-slate-300 hover:text-white transition-all duration-200 active:scale-95 text-right"
             >
-              <div className="text-right">
+              <div className="text-left sm:text-right">
                 <div className="text-[11px] text-slate-400 font-medium">{nextTopic.numberStr}</div>
-                <div className="font-normal truncate max-w-[140px] sm:max-w-xs">{nextTopic.title}</div>
+                <div className="font-normal truncate max-w-[220px] sm:max-w-xs">{nextTopic.title}</div>
               </div>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </button>
           ) : (
             <button
               onClick={() => onOpenQuizForTopic(currentTopic.id)}
-              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/[0.1] hover:bg-white/[0.16] border border-white/[0.18] text-[13px] font-medium text-white transition-all duration-200 active:scale-95 shadow-sm"
+              className="min-h-[48px] flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/[0.1] hover:bg-white/[0.16] border border-white/[0.18] text-[13px] font-medium text-white transition-all duration-200 active:scale-95 shadow-sm"
             >
               <span>Latihan Soal Semua Materi</span>
               <CheckSquare className="h-3.5 w-3.5" />

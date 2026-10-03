@@ -66,15 +66,15 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
   ).length;
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
+    <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 sm:py-12">
       {/* Header & Description */}
-      <div className="mb-8 border-b border-white/[0.08] pb-6">
+      <div className="mb-6 sm:mb-8 border-b border-white/[0.08] pb-5 sm:pb-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <div className="text-xs font-mono tracking-wider text-slate-400 mb-1 uppercase">
+            <div className="text-[11px] sm:text-xs font-mono tracking-wider text-slate-400 mb-1 uppercase">
               {subjectTitle} · LATIHAN SOAL UTS
             </div>
-            <h1 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
+            <h1 className="text-[22px] sm:text-3xl font-light text-white tracking-tight">
               Latihan Soal & Pembahasan
             </h1>
             <p className="mt-1 text-xs sm:text-sm text-slate-400 font-light">
@@ -83,8 +83,8 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
           </div>
 
           {/* Quick Metrics & Reset in Glass Pill */}
-          <div className="flex items-center gap-3">
-            <div className="text-right text-xs text-slate-400 bg-white/[0.03] px-3.5 py-2 rounded-xl border border-white/[0.06]">
+          <div className="flex items-center justify-between sm:justify-end gap-2.5 sm:gap-3">
+            <div className="text-left sm:text-right text-xs text-slate-400 bg-white/[0.03] px-3.5 py-2 rounded-xl border border-white/[0.06]">
               <div>
                 Dijawab:{' '}
                 <span className="text-slate-200 font-medium">
@@ -105,8 +105,9 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
                     onResetAnswers();
                   }
                 }}
-                className="p-2.5 rounded-xl border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/20 hover:bg-white/[0.04] transition-all duration-200 active:scale-95"
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/20 hover:bg-white/[0.04] transition-all duration-200 active:scale-95 shrink-0"
                 title="Reset Jawaban Latihan"
+                aria-label="Reset Jawaban Latihan"
               >
                 <RefreshCw className="h-3.5 w-3.5" />
               </button>
@@ -115,15 +116,15 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
         </div>
 
         {/* Filters and View Mode Controls in Liquid Glass Pill */}
-        <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-2 rounded-2xl liquid-glass-panel">
+        <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 p-2 rounded-[22px] sm:rounded-2xl liquid-glass-panel">
           {/* Topic Filters */}
-          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
             <button
               onClick={() => {
                 setSelectedTopic('all');
                 setCurrentIndex(0);
               }}
-              className={`px-3 py-1.5 rounded-xl text-xs whitespace-nowrap transition-all duration-200 active:scale-95 ${
+              className={`min-h-[38px] px-3 py-1.5 rounded-xl text-xs whitespace-nowrap transition-all duration-200 active:scale-95 shrink-0 ${
                 selectedTopic === 'all'
                   ? 'bg-white/[0.14] text-white font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)] border border-white/[0.14]'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
@@ -141,7 +142,7 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
                     setSelectedTopic(t.id);
                     setCurrentIndex(0);
                   }}
-                  className={`px-2.5 py-1.5 rounded-xl text-xs whitespace-nowrap transition-all duration-200 active:scale-95 ${
+                  className={`min-h-[38px] px-2.5 py-1.5 rounded-xl text-xs whitespace-nowrap transition-all duration-200 active:scale-95 shrink-0 ${
                     selectedTopic === t.id
                       ? 'bg-white/[0.14] text-white font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)] border border-white/[0.14]'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
@@ -154,16 +155,16 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
           </div>
 
           {/* Type Filter & Mode Switcher */}
-          <div className="flex items-center gap-2 shrink-0 px-1">
-            <div className="flex items-center gap-1.5 text-xs">
-              <Filter className="h-3 w-3 text-slate-500" />
+          <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 px-1 pt-1.5 sm:pt-0 border-t border-white/[0.04] sm:border-t-0">
+            <div className="flex items-center gap-1.5 text-xs flex-1 sm:flex-initial">
+              <Filter className="h-3 w-3 text-slate-500 shrink-0" />
               <select
                 value={selectedType}
                 onChange={(e) => {
                   setSelectedType(e.target.value as QuestionType | 'all');
                   setCurrentIndex(0);
                 }}
-                className="bg-[#0b0f16] border border-white/[0.08] text-slate-300 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-white/20 transition-colors"
+                className="w-full sm:w-auto h-[38px] bg-[#0b0f16] border border-white/[0.08] text-slate-300 text-xs rounded-xl px-2.5 py-1 focus:outline-none focus:border-white/20 transition-colors"
               >
                 <option value="all">Semua Tipe Soal</option>
                 <option value="conceptual">Konseptual</option>
@@ -172,12 +173,12 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
               </select>
             </div>
 
-            <div className="h-4 w-px bg-white/10 mx-1" />
+            <div className="h-4 w-px bg-white/10 mx-1 hidden sm:block" />
 
-            <div className="flex items-center p-0.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+            <div className="flex items-center h-[38px] p-0.5 rounded-xl bg-white/[0.04] border border-white/[0.06] shrink-0">
               <button
                 onClick={() => setViewMode('stepper')}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all duration-200 ${
+                className={`h-full px-2.5 rounded-lg text-[11px] font-medium transition-all duration-200 flex items-center justify-center ${
                   viewMode === 'stepper'
                     ? 'bg-white/[0.14] text-white shadow-sm'
                     : 'text-slate-400 hover:text-slate-200'
@@ -187,7 +188,7 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all duration-200 ${
+                className={`h-full px-2.5 rounded-lg text-[11px] font-medium transition-all duration-200 flex items-center justify-center ${
                   viewMode === 'list'
                     ? 'bg-white/[0.14] text-white shadow-sm'
                     : 'text-slate-400 hover:text-slate-200'
@@ -240,11 +241,11 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
           />
 
           {/* Stepper Navigation Buttons */}
-          <div className="flex items-center justify-between pt-6 border-t border-white/[0.08]">
+          <div className="flex items-center justify-between pt-5 sm:pt-6 border-t border-white/[0.08]">
             <button
               onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
               disabled={safeCurrentIndex === 0}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-xs text-slate-300 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-200 active:scale-95"
+              className="min-h-[48px] flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-[13px] text-slate-300 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-200 active:scale-95"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               <span>Sebelumnya</span>
@@ -279,7 +280,7 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
             <button
               onClick={() => setCurrentIndex((prev) => Math.min(totalFiltered - 1, prev + 1))}
               disabled={safeCurrentIndex === totalFiltered - 1}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-xs text-slate-300 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-200 active:scale-95"
+              className="min-h-[48px] flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] text-[13px] text-slate-300 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all duration-200 active:scale-95"
             >
               <span>Selanjutnya</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -288,7 +289,7 @@ export const PracticeQuizView: React.FC<PracticeQuizViewProps> = ({
         </div>
       ) : (
         /* List Mode: Continuous Stream */
-        <div className="space-y-10">
+        <div className="space-y-6 sm:space-y-10">
           {filteredQuestions.map((q, idx) => (
             <div key={q.id} className="pt-2">
               <div className="flex items-center justify-between text-xs text-slate-400 mb-2 px-1">
@@ -330,19 +331,19 @@ const QuestionItem: React.FC<QuestionItemProps> = ({
   const isCorrect = isAnswered && selectedAnswer === question.correctIndex;
 
   return (
-    <div className="rounded-2xl liquid-glass-panel p-5 sm:p-7 space-y-6 relative overflow-hidden">
+    <div className="rounded-[22px] sm:rounded-2xl liquid-glass-panel p-4 sm:p-7 space-y-4 sm:space-y-6 relative overflow-hidden">
       {/* Specular rim highlight */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
 
       {/* Question Prompt */}
       <div>
-        <p className="text-base sm:text-lg font-normal text-white leading-relaxed">
+        <p className="text-[15.5px] sm:text-lg font-normal text-white leading-relaxed">
           {question.question}
         </p>
       </div>
 
       {/* Answer Options in Liquid Glass */}
-      <div className="space-y-2.5">
+      <div className="space-y-2 sm:space-y-2.5">
         {question.options.map((optionText, optIdx) => {
           const letter = String.fromCharCode(65 + optIdx);
           const isSelected = selectedAnswer === optIdx;
@@ -367,10 +368,10 @@ const QuestionItem: React.FC<QuestionItemProps> = ({
             <button
               key={optIdx}
               onClick={() => onSelectOption(optIdx)}
-              className={`w-full flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl border text-left text-xs sm:text-sm transition-all duration-200 active:scale-[0.99] ${optionStyle}`}
+              className={`w-full min-h-[48px] flex items-start gap-3 p-3.5 sm:p-4 rounded-xl border text-left text-[14px] sm:text-sm transition-all duration-200 active:scale-[0.99] active:bg-white/[0.06] ${optionStyle}`}
             >
               <span
-                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-xs font-mono font-medium transition-colors ${
+                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-xs font-mono font-medium transition-colors mt-0.5 ${
                   isAnswered && isThisCorrect
                     ? 'bg-emerald-500/30 text-emerald-300 border border-emerald-500/40'
                     : isAnswered && isSelected && !isThisCorrect
