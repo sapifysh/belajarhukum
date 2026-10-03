@@ -9,6 +9,7 @@ import { HUKUM_ISLAM_METADATA, TOPICS_DATA } from './data/hukumIslamData';
 import { HUKUM_PEMDA_METADATA, PEMDA_TOPICS_DATA } from './data/hukumPemdaData';
 import { PRACTICE_QUESTIONS } from './data/practiceQuestionsData';
 import { PEMDA_PRACTICE_QUESTIONS } from './data/hukumPemdaQuestionsData';
+import siteBackgroundImg from './assets/images/site_background_1791021343659.jpg';
 
 export type AppView = 'home' | 'subject' | 'materi' | 'quiz';
 
@@ -189,12 +190,22 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-[#07090e] text-[#e2e8f0] flex flex-col font-sans selection:bg-slate-700 selection:text-white antialiased">
       {/* Site Background Wallpaper with subtle atmospheric depth */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+      <div
+        className="fixed inset-0 pointer-events-none overflow-hidden z-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${siteBackgroundImg})` }}
+        aria-hidden="true"
+      >
         <img
-          src="/src/assets/images/site_background_1791021343659.jpg"
+          src={siteBackgroundImg}
           alt="Site background texture"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center select-none scale-[1.03] transform-gpu"
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (!target.src.endsWith('/site-background.jpg')) {
+              target.src = '/site-background.jpg';
+            }
+          }}
         />
         {/* Invisible Reading Zone Shield - Darkest at center (rgba 5,8,18 ~0.76), softly feathered out towards flanks */}
         <div
