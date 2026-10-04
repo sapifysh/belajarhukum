@@ -1,3 +1,63 @@
+export interface ProcessStepNode {
+  id: string;
+  stepNumber?: string | number;
+  title: string;
+  actor?: string;
+  timeLimit?: string;
+  description: string;
+  legalBasis?: string;
+  badge?: string;
+  isUrgent?: boolean;
+  branches?: {
+    condition: string;
+    target: string;
+    subNodes?: string[];
+  }[];
+}
+
+export interface FlowchartData {
+  title: string;
+  subtitle?: string;
+  flowType?: 'linear' | 'branching' | 'dual-track' | 'decision';
+  tracks?: {
+    trackName: string;
+    trackBadge?: string;
+    badgeVariant?: 'blue' | 'amber' | 'emerald' | 'rose' | 'purple';
+    steps: ProcessStepNode[];
+  }[];
+  steps?: ProcessStepNode[];
+}
+
+export interface TimelineData {
+  title: string;
+  items: {
+    stage: string;
+    badge?: string;
+    description: string;
+    details?: string[];
+  }[];
+}
+
+export interface QuickReviewItem {
+  question: string;
+  answer: string;
+  keyRule?: string;
+}
+
+export interface ProgressionStep {
+  step: string;
+  label: string;
+  desc: string;
+  legalBasis?: string;
+}
+
+export interface EvidenceItem {
+  id: number;
+  name: string;
+  desc: string;
+  legalRule?: string;
+}
+
 export interface TopicSection {
   id: string;
   title: string;
@@ -17,6 +77,11 @@ export interface TopicSection {
     description: string;
     items: string[];
   }[];
+  flowchart?: FlowchartData;
+  timeline?: TimelineData;
+  quickReview?: QuickReviewItem[];
+  progressionSteps?: ProgressionStep[];
+  evidenceGrid?: EvidenceItem[];
 }
 
 export interface Topic {

@@ -7,10 +7,12 @@ import {
   CheckSquare,
   Circle,
   Search,
+  Sparkles,
   Type,
   X
 } from 'lucide-react';
 import { TOPICS_DATA, Topic } from '../data/hukumIslamData';
+import { InteractiveFlowchart } from './InteractiveFlowchart';
 
 interface MaterialReaderViewProps {
   currentTopicId: number;
@@ -254,6 +256,85 @@ export const MaterialReaderView: React.FC<MaterialReaderViewProps> = ({
                       {section.highlightBox.text}
                     </div>
                   </div>
+                )}
+
+                {/* Visual Progression Steps (e.g. Tersangka -> Terdakwa -> Terpidana) */}
+                {section.progressionSteps && section.progressionSteps.length > 0 && (
+                  <div className="my-6 sm:my-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
+                      {section.progressionSteps.map((step, stIdx) => (
+                        <div
+                          key={stIdx}
+                          className="rounded-[20px] sm:rounded-2xl liquid-glass-panel p-4 sm:p-5 border border-white/[0.08] relative overflow-hidden flex flex-col justify-between"
+                        >
+                          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent pointer-events-none" />
+                          <div>
+                            <div className="flex items-center justify-between mb-2">
+                              <span className="text-[11px] font-semibold uppercase tracking-wider text-cyan-400">
+                                {step.step}
+                              </span>
+                              {step.legalBasis && (
+                                <span className="text-[10px] text-slate-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                                  {step.legalBasis}
+                                </span>
+                              )}
+                            </div>
+                            <h4 className="text-[18px] sm:text-[20px] font-bold text-white tracking-tight mb-2">
+                              {step.label}
+                            </h4>
+                            <p className="text-[13px] sm:text-[14px] text-slate-300 leading-relaxed font-light">
+                              {step.desc}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Timeline / Paradigm Transition */}
+                {section.timeline && (
+                  <div className="my-6 sm:my-8 rounded-[20px] sm:rounded-2xl liquid-glass-panel p-4 sm:p-6 border border-white/[0.08] relative overflow-hidden">
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent pointer-events-none" />
+                    <h4 className="text-[16px] sm:text-[18px] font-semibold text-white tracking-tight mb-4 flex items-center gap-2">
+                      <Sparkles className="h-4 w-4 text-amber-400" />
+                      <span>{section.timeline.title}</span>
+                    </h4>
+                    <div className="space-y-4">
+                      {section.timeline.items.map((item, tIdx) => (
+                        <div
+                          key={tIdx}
+                          className="p-3.5 sm:p-4 rounded-xl bg-white/[0.025] border border-white/[0.06] hover:border-white/[0.12] transition-colors"
+                        >
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                            <span className="text-[15px] sm:text-[16px] font-semibold text-white">
+                              {item.stage}
+                            </span>
+                            {item.badge && (
+                              <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                                {item.badge}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-[13.5px] sm:text-[14.5px] text-slate-300 leading-relaxed font-light">
+                            {item.description}
+                          </p>
+                          {item.details && item.details.length > 0 && (
+                            <ul className="mt-2.5 pl-4 list-disc space-y-1 text-[12.5px] sm:text-[13px] text-slate-400">
+                              {item.details.map((d, dIdx) => (
+                                <li key={dIdx}>{d}</li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Interactive Flowchart */}
+                {section.flowchart && (
+                  <InteractiveFlowchart flowchart={section.flowchart} />
                 )}
 
                 {/* Comparison Boxes */}

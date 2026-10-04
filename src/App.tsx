@@ -8,9 +8,17 @@ import { SubjectHomeView } from './components/SubjectHomeView';
 import { HUKUM_ISLAM_METADATA, TOPICS_DATA } from './data/hukumIslamData';
 import { HUKUM_PEMDA_METADATA, PEMDA_TOPICS_DATA } from './data/hukumPemdaData';
 import { HUKUM_PTUN_METADATA, PTUN_TOPICS_DATA } from './data/hukumPtunData';
+import {
+  HUKUM_PIDANA_METADATA,
+  PIDANA_ANGKA_PENTING,
+  PIDANA_GLOSSARY,
+  PIDANA_MASTER_FLOW,
+  PIDANA_TOPICS_DATA,
+} from './data/hukumPidanaData';
 import { PRACTICE_QUESTIONS } from './data/practiceQuestionsData';
 import { PEMDA_PRACTICE_QUESTIONS } from './data/hukumPemdaQuestionsData';
 import { PTUN_PRACTICE_QUESTIONS } from './data/hukumPtunQuestionsData';
+import { PIDANA_PRACTICE_QUESTIONS } from './data/hukumPidanaQuestionsData';
 import siteBackgroundImg from './assets/images/site_background_1791021343659.jpg';
 
 export type AppView = 'home' | 'subject' | 'materi' | 'quiz';
@@ -51,6 +59,16 @@ export default function App() {
     }
   });
 
+  // Persistence: Studied topics for Hukum Acara Pidana
+  const [studiedTopicsPidana, setStudiedTopicsPidana] = useState<number[]>(() => {
+    try {
+      const saved = localStorage.getItem('my_study_space_studied_pidana');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
   // Persistence: Quiz answers for Hukum Islam
   const [userAnswersIslam, setUserAnswersIslam] = useState<Record<string, number>>(() => {
     try {
@@ -75,6 +93,16 @@ export default function App() {
   const [userAnswersPtun, setUserAnswersPtun] = useState<Record<string, number>>(() => {
     try {
       const saved = localStorage.getItem('my_study_space_quiz_answers_ptun');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Persistence: Quiz answers for Hukum Acara Pidana
+  const [userAnswersPidana, setUserAnswersPidana] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('my_study_space_quiz_answers_pidana');
       return saved ? JSON.parse(saved) : {};
     } catch {
       return {};
@@ -107,6 +135,14 @@ export default function App() {
 
   useEffect(() => {
     try {
+      localStorage.setItem('my_study_space_studied_pidana', JSON.stringify(studiedTopicsPidana));
+    } catch {
+      // ignore
+    }
+  }, [studiedTopicsPidana]);
+
+  useEffect(() => {
+    try {
       localStorage.setItem('my_study_space_quiz_answers', JSON.stringify(userAnswersIslam));
     } catch {
       // ignore
@@ -129,72 +165,101 @@ export default function App() {
     }
   }, [userAnswersPtun]);
 
+  useEffect(() => {
+    try {
+      localStorage.setItem('my_study_space_quiz_answers_pidana', JSON.stringify(userAnswersPidana));
+    } catch {
+      // ignore
+    }
+  }, [userAnswersPidana]);
+
   // Active Subject Configuration
   const isIslam = currentSubject === 'hukum-islam';
   const isPemda = currentSubject === 'hukum-pemda';
   const isPtun = currentSubject === 'hukum-ptun';
+  const isPidana = currentSubject === 'hukum-pidana';
 
   const activeSubjectTitle = isIslam
     ? 'Hukum Islam'
     : isPemda
     ? 'Hukum Pemerintahan Daerah'
-    : 'Hukum Acara Peradilan Tata Usaha Negara';
+    : isPtun
+    ? 'Hukum Acara Peradilan Tata Usaha Negara'
+    : 'Hukum Acara Pidana';
 
   const activeShortTitle = isIslam
     ? 'Hukum Islam'
     : isPemda
     ? 'Hukum Pemda'
-    : 'Hukum Acara PTUN';
+    : isPtun
+    ? 'Hukum Acara PTUN'
+    : 'Hukum Acara Pidana';
 
   const activeMetadata = isIslam
     ? HUKUM_ISLAM_METADATA
     : isPemda
     ? HUKUM_PEMDA_METADATA
-    : HUKUM_PTUN_METADATA;
+    : isPtun
+    ? HUKUM_PTUN_METADATA
+    : HUKUM_PIDANA_METADATA;
 
   const activeTopics = isIslam
     ? TOPICS_DATA
     : isPemda
     ? PEMDA_TOPICS_DATA
-    : PTUN_TOPICS_DATA;
+    : isPtun
+    ? PTUN_TOPICS_DATA
+    : PIDANA_TOPICS_DATA;
 
   const activeQuestions = isIslam
     ? PRACTICE_QUESTIONS
     : isPemda
     ? PEMDA_PRACTICE_QUESTIONS
-    : PTUN_PRACTICE_QUESTIONS;
+    : isPtun
+    ? PTUN_PRACTICE_QUESTIONS
+    : PIDANA_PRACTICE_QUESTIONS;
 
   const activeStudiedTopics = isIslam
     ? studiedTopicsIslam
     : isPemda
     ? studiedTopicsPemda
-    : studiedTopicsPtun;
+    : isPtun
+    ? studiedTopicsPtun
+    : studiedTopicsPidana;
 
   const activeUserAnswers = isIslam
     ? userAnswersIslam
     : isPemda
     ? userAnswersPemda
-    : userAnswersPtun;
+    : isPtun
+    ? userAnswersPtun
+    : userAnswersPidana;
 
-  const activeTopicUnitLabel = isPemda ? 'Pertemuan' : 'Topik';
+  const activeTopicUnitLabel = isPemda || isPidana ? 'Pertemuan' : 'Topik';
 
   const activeDescription = isIslam
     ? 'Rangkuman Panduan Belajar UTS Komprehensif. Berfokus secara mendalam pada Topik 1 hingga Topik 5 berlandaskan rujukan Prof. Daud Ali & Prof. Hazairin.'
     : isPemda
     ? 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Mengkaji tatanan desentralisasi, pembagian urusan, dan otonomi asimetris berdasarkan rujukan M. Dahlan, S.H., M.H.'
-    : 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Membahas tuntas prosedur sengketa administrasi negara dari Pengantar hingga Replik.';
+    : isPtun
+    ? 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Membahas tuntas prosedur sengketa administrasi negara dari Pengantar hingga Replik.'
+    : 'Rangkuman Lengkap Materi Hukum Acara Pidana (Pertemuan 1–12) Berdasarkan UU No. 20 Tahun 2025 tentang Kitab Undang-Undang Hukum Acara Pidana.';
 
   const activeCurriculumNote = isIslam
     ? 'Pertanyaan berbasis materi resmi Silabus Topik 1–5 (Prof. Daud Ali & Prof. Hazairin).'
     : isPemda
     ? 'Pertanyaan berbasis materi resmi Silabus Pertemuan 1–7 (M. Dahlan, S.H., M.H. — FH UB).'
-    : 'Pertanyaan komprehensif berbasis materi resmi Silabus Topik 1–8 (termasuk latihan soal persiapan UTS).';
+    : isPtun
+    ? 'Pertanyaan komprehensif berbasis materi resmi Silabus Topik 1–8 (termasuk latihan soal persiapan UTS).'
+    : 'Pertanyaan berbasis materi resmi KUHAP Baru UU No. 20 Tahun 2025 (Pertemuan 1–12).';
 
   const activeReferenceNote = isIslam
     ? 'Rujukan Akademis: Prof. Daud Ali & Prof. Hazairin · Kurikulum Fakultas Hukum · Silabus RPS Sub CPMK 1 – 5'
     : isPemda
     ? 'Rujukan Akademis: M. Dahlan, S.H., M.H. · Fakultas Hukum Universitas Brawijaya (FH UB) · RPS Sub-CPMK 1 – 7'
-    : 'Rujukan Akademis: Kurikulum Fakultas Hukum · Silabus Substantif Topik 1 – 8';
+    : isPtun
+    ? 'Rujukan Akademis: Kurikulum Fakultas Hukum · Silabus Substantif Topik 1 – 8'
+    : 'Rujukan Akademis: UU No. 20 Tahun 2025 (KUHAP Baru) · Kurikulum Fakultas Hukum · Pertemuan 1 – 12';
 
   // Navigation handlers
   const handleNavigate = (view: AppView) => {
@@ -241,8 +306,12 @@ export default function App() {
       setStudiedTopicsPemda((prev) =>
         prev.includes(topicId) ? prev.filter((id) => id !== topicId) : [...prev, topicId]
       );
-    } else {
+    } else if (isPtun) {
       setStudiedTopicsPtun((prev) =>
+        prev.includes(topicId) ? prev.filter((id) => id !== topicId) : [...prev, topicId]
+      );
+    } else {
+      setStudiedTopicsPidana((prev) =>
         prev.includes(topicId) ? prev.filter((id) => id !== topicId) : [...prev, topicId]
       );
     }
@@ -259,8 +328,13 @@ export default function App() {
         ...prev,
         [questionId]: optionIndex,
       }));
-    } else {
+    } else if (isPtun) {
       setUserAnswersPtun((prev) => ({
+        ...prev,
+        [questionId]: optionIndex,
+      }));
+    } else {
+      setUserAnswersPidana((prev) => ({
         ...prev,
         [questionId]: optionIndex,
       }));
@@ -282,10 +356,17 @@ export default function App() {
       } catch {
         // ignore
       }
-    } else {
+    } else if (isPtun) {
       setUserAnswersPtun({});
       try {
         localStorage.removeItem('my_study_space_quiz_answers_ptun');
+      } catch {
+        // ignore
+      }
+    } else {
+      setUserAnswersPidana({});
+      try {
+        localStorage.removeItem('my_study_space_quiz_answers_pidana');
       } catch {
         // ignore
       }
@@ -353,6 +434,8 @@ export default function App() {
                 totalTopicsPemda={PEMDA_TOPICS_DATA.length}
                 studiedCountPtun={studiedTopicsPtun.length}
                 totalTopicsPtun={PTUN_TOPICS_DATA.length}
+                studiedCountPidana={studiedTopicsPidana.length}
+                totalTopicsPidana={PIDANA_TOPICS_DATA.length}
               />
             </motion.div>
           )}
@@ -376,6 +459,9 @@ export default function App() {
                 onOpenQuiz={(topicId) => handleOpenQuiz(currentSubject, topicId)}
                 topicUnitLabel={activeTopicUnitLabel.toLowerCase()}
                 quizCount={activeQuestions.length}
+                masterFlow={isPidana ? PIDANA_MASTER_FLOW : undefined}
+                angkaPenting={isPidana ? PIDANA_ANGKA_PENTING : undefined}
+                glossary={isPidana ? PIDANA_GLOSSARY : undefined}
               />
             </motion.div>
           )}
