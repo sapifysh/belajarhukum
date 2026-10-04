@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { HomeLandingView } from './components/HomeLandingView';
 import { HomeView, SubjectId } from './components/HomeView';
 import { MaterialReaderView } from './components/MaterialReaderView';
-import { Navbar } from './components/Navbar';
+import { Navbar, NavView } from './components/Navbar';
 import { PracticeQuizView } from './components/PracticeQuizView';
 import { SubjectHomeView } from './components/SubjectHomeView';
 import { HUKUM_ISLAM_METADATA, TOPICS_DATA } from './data/hukumIslamData';
@@ -21,7 +22,7 @@ import { PTUN_PRACTICE_QUESTIONS } from './data/hukumPtunQuestionsData';
 import { PIDANA_PRACTICE_QUESTIONS } from './data/hukumPidanaQuestionsData';
 import siteBackgroundImg from './assets/images/site_background_1791021343659.jpg';
 
-export type AppView = 'home' | 'subject' | 'materi' | 'quiz';
+export type AppView = NavView;
 
 export default function App() {
   const [currentView, setCurrentView] = useState<AppView>('home');
@@ -424,6 +425,18 @@ export default function App() {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             >
+              <HomeLandingView onStartStudy={() => handleNavigate('subjects')} />
+            </motion.div>
+          )}
+
+          {currentView === 'subjects' && (
+            <motion.div
+              key="subjects"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            >
               <HomeView
                 onSelectSubject={handleSelectSubject}
                 onOpenMateri={handleOpenMateri}
@@ -516,13 +529,23 @@ export default function App() {
       <footer className="relative z-10 border-t border-white/[0.06] py-8 text-center text-xs text-slate-500 font-light backdrop-blur-sm">
         <div className="mx-auto max-w-4xl px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span>My Study Space · Private Academic Study Sanctuary</span>
-          <div className="flex items-center gap-2 text-slate-500">
-            <span>{activeSubjectTitle}</span>
-            <span aria-hidden="true" className="text-slate-700">·</span>
-            <span>{activeMetadata.syllabus}</span>
-            <span aria-hidden="true" className="text-slate-700">·</span>
-            <span>Fakultas Hukum</span>
-          </div>
+          {currentView !== 'home' ? (
+            <div className="flex items-center gap-2 text-slate-500">
+              <span>{activeSubjectTitle}</span>
+              <span aria-hidden="true" className="text-slate-700">·</span>
+              <span>{activeMetadata.syllabus}</span>
+              <span aria-hidden="true" className="text-slate-700">·</span>
+              <span>Fakultas Hukum</span>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 text-slate-500">
+              <span>Study</span>
+              <span aria-hidden="true" className="text-slate-700">·</span>
+              <span>Understand</span>
+              <span aria-hidden="true" className="text-slate-700">·</span>
+              <span>Practice</span>
+            </div>
+          )}
         </div>
       </footer>
     </div>
