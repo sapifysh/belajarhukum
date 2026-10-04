@@ -141,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             )}
             {currentView === 'subjects' && (
               <span className="text-[11px] text-slate-400 font-normal px-2.5 py-1 bg-white/[0.04] rounded-xl border border-white/[0.06]">
-                4 Kursus
+                5 Kursus
               </span>
             )}
             {currentView === 'subject' && (
@@ -181,7 +181,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
             ) : currentView === 'subjects' ? (
               <div className="text-[11px] text-slate-400 font-normal px-3 py-1.5 bg-white/[0.03] rounded-xl border border-white/[0.05]">
-                4 Mata Kuliah Aktif
+                5 Mata Kuliah Aktif
               </div>
             ) : currentView === 'subject' ? (
               <div className="flex items-center gap-1.5 text-xs text-slate-400 bg-white/[0.03] px-3 py-1.5 rounded-xl border border-white/[0.05]">

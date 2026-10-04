@@ -16,10 +16,12 @@ import {
   PIDANA_MASTER_FLOW,
   PIDANA_TOPICS_DATA,
 } from './data/hukumPidanaData';
+import { HUKUM_DAGANG_METADATA, DAGANG_TOPICS_DATA } from './data/hukumDagangData';
 import { PRACTICE_QUESTIONS } from './data/practiceQuestionsData';
 import { PEMDA_PRACTICE_QUESTIONS } from './data/hukumPemdaQuestionsData';
 import { PTUN_PRACTICE_QUESTIONS } from './data/hukumPtunQuestionsData';
 import { PIDANA_PRACTICE_QUESTIONS } from './data/hukumPidanaQuestionsData';
+import { DAGANG_PRACTICE_QUESTIONS } from './data/hukumDagangQuestionsData';
 import siteBackgroundImg from './assets/images/site_background_1791021343659.jpg';
 
 export type AppView = NavView;
@@ -70,6 +72,16 @@ export default function App() {
     }
   });
 
+  // Persistence: Studied topics for Hukum Dagang
+  const [studiedTopicsDagang, setStudiedTopicsDagang] = useState<number[]>(() => {
+    try {
+      const saved = localStorage.getItem('my_study_space_studied_dagang');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
   // Persistence: Quiz answers for Hukum Islam
   const [userAnswersIslam, setUserAnswersIslam] = useState<Record<string, number>>(() => {
     try {
@@ -110,6 +122,16 @@ export default function App() {
     }
   });
 
+  // Persistence: Quiz answers for Hukum Dagang
+  const [userAnswersDagang, setUserAnswersDagang] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('my_study_space_quiz_answers_dagang');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
   useEffect(() => {
     try {
       localStorage.setItem('my_study_space_studied', JSON.stringify(studiedTopicsIslam));
@@ -144,6 +166,14 @@ export default function App() {
 
   useEffect(() => {
     try {
+      localStorage.setItem('my_study_space_studied_dagang', JSON.stringify(studiedTopicsDagang));
+    } catch {
+      // ignore
+    }
+  }, [studiedTopicsDagang]);
+
+  useEffect(() => {
+    try {
       localStorage.setItem('my_study_space_quiz_answers', JSON.stringify(userAnswersIslam));
     } catch {
       // ignore
@@ -174,11 +204,20 @@ export default function App() {
     }
   }, [userAnswersPidana]);
 
+  useEffect(() => {
+    try {
+      localStorage.setItem('my_study_space_quiz_answers_dagang', JSON.stringify(userAnswersDagang));
+    } catch {
+      // ignore
+    }
+  }, [userAnswersDagang]);
+
   // Active Subject Configuration
   const isIslam = currentSubject === 'hukum-islam';
   const isPemda = currentSubject === 'hukum-pemda';
   const isPtun = currentSubject === 'hukum-ptun';
   const isPidana = currentSubject === 'hukum-pidana';
+  const isDagang = currentSubject === 'hukum-dagang';
 
   const activeSubjectTitle = isIslam
     ? 'Hukum Islam'
@@ -186,7 +225,9 @@ export default function App() {
     ? 'Hukum Pemerintahan Daerah'
     : isPtun
     ? 'Hukum Acara Peradilan Tata Usaha Negara'
-    : 'Hukum Acara Pidana';
+    : isPidana
+    ? 'Hukum Acara Pidana'
+    : 'Hukum Dagang';
 
   const activeShortTitle = isIslam
     ? 'Hukum Islam'
@@ -194,7 +235,9 @@ export default function App() {
     ? 'Hukum Pemda'
     : isPtun
     ? 'Hukum Acara PTUN'
-    : 'Hukum Acara Pidana';
+    : isPidana
+    ? 'Hukum Acara Pidana'
+    : 'Hukum Dagang';
 
   const activeMetadata = isIslam
     ? HUKUM_ISLAM_METADATA
@@ -202,7 +245,9 @@ export default function App() {
     ? HUKUM_PEMDA_METADATA
     : isPtun
     ? HUKUM_PTUN_METADATA
-    : HUKUM_PIDANA_METADATA;
+    : isPidana
+    ? HUKUM_PIDANA_METADATA
+    : HUKUM_DAGANG_METADATA;
 
   const activeTopics = isIslam
     ? TOPICS_DATA
@@ -210,7 +255,9 @@ export default function App() {
     ? PEMDA_TOPICS_DATA
     : isPtun
     ? PTUN_TOPICS_DATA
-    : PIDANA_TOPICS_DATA;
+    : isPidana
+    ? PIDANA_TOPICS_DATA
+    : DAGANG_TOPICS_DATA;
 
   const activeQuestions = isIslam
     ? PRACTICE_QUESTIONS
@@ -218,7 +265,9 @@ export default function App() {
     ? PEMDA_PRACTICE_QUESTIONS
     : isPtun
     ? PTUN_PRACTICE_QUESTIONS
-    : PIDANA_PRACTICE_QUESTIONS;
+    : isPidana
+    ? PIDANA_PRACTICE_QUESTIONS
+    : DAGANG_PRACTICE_QUESTIONS;
 
   const activeStudiedTopics = isIslam
     ? studiedTopicsIslam
@@ -226,7 +275,9 @@ export default function App() {
     ? studiedTopicsPemda
     : isPtun
     ? studiedTopicsPtun
-    : studiedTopicsPidana;
+    : isPidana
+    ? studiedTopicsPidana
+    : studiedTopicsDagang;
 
   const activeUserAnswers = isIslam
     ? userAnswersIslam
@@ -234,7 +285,9 @@ export default function App() {
     ? userAnswersPemda
     : isPtun
     ? userAnswersPtun
-    : userAnswersPidana;
+    : isPidana
+    ? userAnswersPidana
+    : userAnswersDagang;
 
   const activeTopicUnitLabel = isPemda || isPidana ? 'Pertemuan' : 'Topik';
 
@@ -244,7 +297,9 @@ export default function App() {
     ? 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Mengkaji tatanan desentralisasi, pembagian urusan, dan otonomi asimetris berdasarkan rujukan M. Dahlan, S.H., M.H.'
     : isPtun
     ? 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Membahas tuntas prosedur sengketa administrasi negara dari Pengantar hingga Replik.'
-    : 'Rangkuman Lengkap Materi Hukum Acara Pidana (Pertemuan 1–12) Berdasarkan UU No. 20 Tahun 2025 tentang Kitab Undang-Undang Hukum Acara Pidana.';
+    : isPidana
+    ? 'Rangkuman Lengkap Materi Hukum Acara Pidana (Pertemuan 1–12) Berdasarkan UU No. 20 Tahun 2025 tentang Kitab Undang-Undang Hukum Acara Pidana.'
+    : 'Rangkuman Komprehensif Hukum Dagang: Hubungan KUHD-BW, Subjek Hukum Dagang, Badan Usaha & Badan Hukum, Bentuk Perusahaan, Perantara Dagang, hingga Mekanisme L/C.';
 
   const activeCurriculumNote = isIslam
     ? 'Pertanyaan berbasis materi resmi Silabus Topik 1–5 (Prof. Daud Ali & Prof. Hazairin).'
@@ -252,7 +307,9 @@ export default function App() {
     ? 'Pertanyaan berbasis materi resmi Silabus Pertemuan 1–7 (M. Dahlan, S.H., M.H. — FH UB).'
     : isPtun
     ? 'Pertanyaan komprehensif berbasis materi resmi Silabus Topik 1–8 (termasuk latihan soal persiapan UTS).'
-    : 'Pertanyaan berbasis materi resmi KUHAP Baru UU No. 20 Tahun 2025 (Pertemuan 1–12).';
+    : isPidana
+    ? 'Pertanyaan berbasis materi resmi KUHAP Baru UU No. 20 Tahun 2025 (Pertemuan 1–12).'
+    : 'Pertanyaan berbasis materi resmi KUHD, BW, UU Wajib Daftar Perusahaan, dan UCP 600.';
 
   const activeReferenceNote = isIslam
     ? 'Rujukan Akademis: Prof. Daud Ali & Prof. Hazairin · Kurikulum Fakultas Hukum · Silabus RPS Sub CPMK 1 – 5'
@@ -260,7 +317,9 @@ export default function App() {
     ? 'Rujukan Akademis: M. Dahlan, S.H., M.H. · Fakultas Hukum Universitas Brawijaya (FH UB) · RPS Sub-CPMK 1 – 7'
     : isPtun
     ? 'Rujukan Akademis: Kurikulum Fakultas Hukum · Silabus Substantif Topik 1 – 8'
-    : 'Rujukan Akademis: UU No. 20 Tahun 2025 (KUHAP Baru) · Kurikulum Fakultas Hukum · Pertemuan 1 – 12';
+    : isPidana
+    ? 'Rujukan Akademis: UU No. 20 Tahun 2025 (KUHAP Baru) · Kurikulum Fakultas Hukum · Pertemuan 1 – 12'
+    : 'Rujukan Akademis: Kitab Undang-Undang Hukum Dagang (KUHD) · Burgerlijk Wetboek (BW) · UU No. 3 Tahun 1982 · UU No. 40 Tahun 2007';
 
   // Navigation handlers
   const handleNavigate = (view: AppView) => {
@@ -311,8 +370,12 @@ export default function App() {
       setStudiedTopicsPtun((prev) =>
         prev.includes(topicId) ? prev.filter((id) => id !== topicId) : [...prev, topicId]
       );
-    } else {
+    } else if (isPidana) {
       setStudiedTopicsPidana((prev) =>
+        prev.includes(topicId) ? prev.filter((id) => id !== topicId) : [...prev, topicId]
+      );
+    } else {
+      setStudiedTopicsDagang((prev) =>
         prev.includes(topicId) ? prev.filter((id) => id !== topicId) : [...prev, topicId]
       );
     }
@@ -334,8 +397,13 @@ export default function App() {
         ...prev,
         [questionId]: optionIndex,
       }));
-    } else {
+    } else if (isPidana) {
       setUserAnswersPidana((prev) => ({
+        ...prev,
+        [questionId]: optionIndex,
+      }));
+    } else {
+      setUserAnswersDagang((prev) => ({
         ...prev,
         [questionId]: optionIndex,
       }));
@@ -364,10 +432,17 @@ export default function App() {
       } catch {
         // ignore
       }
-    } else {
+    } else if (isPidana) {
       setUserAnswersPidana({});
       try {
         localStorage.removeItem('my_study_space_quiz_answers_pidana');
+      } catch {
+        // ignore
+      }
+    } else {
+      setUserAnswersDagang({});
+      try {
+        localStorage.removeItem('my_study_space_quiz_answers_dagang');
       } catch {
         // ignore
       }
@@ -449,6 +524,8 @@ export default function App() {
                 totalTopicsPtun={PTUN_TOPICS_DATA.length}
                 studiedCountPidana={studiedTopicsPidana.length}
                 totalTopicsPidana={PIDANA_TOPICS_DATA.length}
+                studiedCountDagang={studiedTopicsDagang.length}
+                totalTopicsDagang={DAGANG_TOPICS_DATA.length}
               />
             </motion.div>
           )}
