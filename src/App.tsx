@@ -296,7 +296,7 @@ export default function App() {
     : isPemda
     ? 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Mengkaji tatanan desentralisasi, pembagian urusan, dan otonomi asimetris berdasarkan rujukan M. Dahlan, S.H., M.H.'
     : isPtun
-    ? 'Rangkuman Panduan Belajar UTS Komprehensif FH UB. Membahas tuntas prosedur sengketa administrasi negara dari Pengantar hingga Replik.'
+    ? 'Materi Lengkap Hukum Acara Peradilan Tata Usaha Negara (Topik 01–34) berdasarkan bahan perkuliahan Amelia Ayu Paramitha, S.H., M.H. Membahas tuntas wewenang, subjek, objek KTUN, gugatan, e-Court, dismissal, hingga pembuktian dan putusan.'
     : isPidana
     ? 'Rangkuman Lengkap Materi Hukum Acara Pidana (Pertemuan 1–12) Berdasarkan UU No. 20 Tahun 2025 tentang Kitab Undang-Undang Hukum Acara Pidana.'
     : 'Rangkuman Komprehensif Hukum Dagang: Hubungan KUHD-BW, Subjek Hukum Dagang, Badan Usaha & Badan Hukum, Bentuk Perusahaan, Perantara Dagang, hingga Mekanisme L/C.';
@@ -306,7 +306,7 @@ export default function App() {
     : isPemda
     ? 'Pertanyaan berbasis materi resmi Silabus Pertemuan 1–7 (M. Dahlan, S.H., M.H. — FH UB).'
     : isPtun
-    ? 'Pertanyaan komprehensif berbasis materi resmi Silabus Topik 1–8 (termasuk latihan soal persiapan UTS).'
+    ? 'Pertanyaan komprehensif berbasis materi resmi Hukum Acara PTUN (Amelia Ayu Paramitha, S.H., M.H. — Topik 01–34).'
     : isPidana
     ? 'Pertanyaan berbasis materi resmi KUHAP Baru UU No. 20 Tahun 2025 (Pertemuan 1–12).'
     : 'Pertanyaan berbasis materi resmi KUHD, BW, UU Wajib Daftar Perusahaan, dan UCP 600.';
@@ -316,7 +316,7 @@ export default function App() {
     : isPemda
     ? 'Rujukan Akademis: M. Dahlan, S.H., M.H. · Fakultas Hukum Universitas Brawijaya (FH UB) · RPS Sub-CPMK 1 – 7'
     : isPtun
-    ? 'Rujukan Akademis: Kurikulum Fakultas Hukum · Silabus Substantif Topik 1 – 8'
+    ? 'Rujukan Perkuliahan: Amelia Ayu Paramitha, S.H., M.H. · UU Peratun (UU 5/1986 jo. 9/2004 jo. 51/2009) · UU 30/2014 · Perma 6/2018'
     : isPidana
     ? 'Rujukan Akademis: UU No. 20 Tahun 2025 (KUHAP Baru) · Kurikulum Fakultas Hukum · Pertemuan 1 – 12'
     : 'Rujukan Akademis: Kitab Undang-Undang Hukum Dagang (KUHD) · Burgerlijk Wetboek (BW) · UU No. 3 Tahun 1982 · UU No. 40 Tahun 2007';

@@ -1,532 +1,658 @@
 import { PracticeQuestion } from './practiceQuestionsData';
 
 export const PTUN_PRACTICE_QUESTIONS: PracticeQuestion[] = [
-  // 1-5: The 5 Original Questions & Official Kunci Jawaban from the Source PDF (pages 22-24)
+  // 1. Latar Belakang & Urgensi PTUN
   {
-    id: 'ptun-soal-01',
+    id: 'ptun-amelia-01',
     topicId: 1,
-    topicTitle: 'Pengantar Hukum Acara PTUN',
+    topicTitle: 'Topik 01: Latar Belakang dan Urgensi Peradilan Administrasi',
     type: 'conceptual',
-    typeLabel: 'Soal Resmi PDF #1',
-    question: 'Mengapa Keputusan Tata Usaha Negara (KTUN) dapat menjadi objek sengketa di Peradilan Tata Usaha Negara (PTUN)?',
+    typeLabel: 'Konseptual Welfare State',
+    question: 'Mengapa dalam konsepsi negara hukum materiil (welfare state) potensi benturan antara pemerintah dan warga negara semakin meningkat sehingga mendesak dibentuknya PTUN?',
     options: [
-      'Karena KTUN merupakan ketetapan sepihak yang otomatis berstatus tindak pidana jabatan',
-      'Karena KTUN adalah penetapan tertulis dari pejabat TUN yang bersifat konkret, individual, final serta dapat merugikan seseorang atau badan hukum perdata sehingga dapat diuji keabsahannya di PTUN',
-      'Karena KTUN selalu memuat norma hukum umum abstrak yang harus diuji materiil oleh Mahkamah Agung',
-      'Karena KTUN merupakan perjanjian perdata antara pemerintah dan warga masyarakat yang menimbulkan wanprestasi'
+      'Karena pemerintah bertindak pasif sebagai negara penjaga malam semata',
+      'Karena pemerintah diberikan kewenangan luas dan aktif menyelenggarakan kesejahteraan umum (bestuurszorg) yang berpotensi bersinggungan dengan hak-hak warga',
+      'Karena pemerintah diwajibkan menyerahkan seluruh aset publik kepada badan usaha swasta',
+      'Karena peradilan umum tidak lagi diakui keberadaannya dalam UUD 1945'
     ],
     correctIndex: 1,
-    explanation: 'KUNCI JAWABAN RESMI PDF: HTUN adalah hukum yang mengatur penyelenggaraan administrasi pemerintahan. PTUN adalah lembaga peradilan yang menyelesaikan sengketa antara warga atau badan hukum dengan pejabat TUN. KTUN adalah penetapan tertulis yang dikeluarkan pejabat TUN yang bersifat konkret, individual, dan final serta menimbulkan akibat hukum. KTUN menjadi objek sengketa karena dapat merugikan seseorang atau badan hukum sehingga dapat diuji keabsahannya di PTUN.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 22 & 23, Soal #1)'
+    explanation: 'Dalam negara hukum kesejahteraan (welfare state), pemerintah mengemban tugas bestuurszorg (menyelenggarakan kesejahteraan umum) dengan wewenang luas. Luasnya campur tangan birokrasi berpotensi menimbulkan gesekan, maladministrasi, atau penyalahgunaan wewenang (abuse of power), sehingga mutlak dilembagakan kontrol yuridis (judicial control) melalui PTUN.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 01: Latar Belakang & Urgensi)'
   },
   {
-    id: 'ptun-soal-02',
-    topicId: 2,
-    topicTitle: 'Kompetensi PTUN',
+    id: 'ptun-amelia-02',
+    topicId: 1,
+    topicTitle: 'Topik 01: Latar Belakang dan Urgensi Peradilan Administrasi',
     type: 'conceptual',
-    typeLabel: 'Soal Resmi PDF #2',
-    question: 'Apakah perbedaan mendasar antara kompetensi absolut dan kompetensi relatif dalam Peradilan Tata Usaha Negara?',
+    typeLabel: 'Tujuan Dibentuknya PTUN',
+    question: 'Apakah tujuan normatif dari dibentuknya Peradilan Tata Usaha Negara menurut bahan perkuliahan?',
     options: [
-      'Kompetensi absolut didasarkan pada nilai ganti rugi uang, sedangkan kompetensi relatif didasarkan pada jabatan tergugat',
-      'Kompetensi absolut adalah kewenangan pengadilan tingkat pertama, sedangkan kompetensi relatif adalah wewenang pengadilan banding',
-      'Kompetensi absolut adalah kewenangan pengadilan berdasarkan jenis atau materi perkara (menentukan sengketa KTUN diperiksa PTUN), sedangkan kompetensi relatif adalah kewenangan berdasarkan batas wilayah hukum (menentukan PTUN mana yang berwenang)',
-      'Kompetensi absolut hanya berlaku bagi perkara kepegawaian, sedangkan kompetensi relatif berlaku untuk sengketa perizinan'
-    ],
-    correctIndex: 2,
-    explanation: 'KUNCI JAWABAN RESMI PDF: Kompetensi absolut adalah kewenangan pengadilan berdasarkan jenis atau materi perkara. Kompetensi relatif adalah kewenangan pengadilan berdasarkan wilayah hukum. Dalam PTUN, kompetensi absolut menentukan bahwa sengketa KTUN diperiksa oleh PTUN, sedangkan kompetensi relatif menentukan PTUN mana yang berwenang berdasarkan wilayah.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 22 & 23, Soal #2)'
-  },
-  {
-    id: 'ptun-soal-03',
-    topicId: 3,
-    topicTitle: 'Gugatan PTUN',
-    type: 'conceptual',
-    typeLabel: 'Soal Resmi PDF #3',
-    question: 'Berdasarkan Pasal 53 ayat (2) UU Peratun, alasan-alasan apa sajakah yang dapat digunakan oleh penggugat untuk mengajukan gugatan pembatalan KTUN?',
-    options: [
-      'Wanprestasi, perbuatan melawan hukum perdata, dan kealpaan administratif',
-      'Bertentangan dengan peraturan perundang-undangan, penyalahgunaan wewenang (détournement de pouvoir), dan tindakan sewenang-wenang (willekeur / melanggar AAUPB)',
-      'Tergugat tidak menghadiri mediasi, keterlambatan tanggapan lebih dari 30 hari, dan kerugian materiel di atas 100 juta rupiah',
-      'Pelanggaran kode etik pejabat, pertentangan dengan hukum pidana, dan ketidakpuasan politik'
+      'Untuk menggantikan fungsi badan legislatif dalam membentuk undang-undang',
+      'Sebagai instrumen kontrol yuridis dalam menegakkan asas legalitas dan AUPB terhadap tindakan pemerintah',
+      'Untuk menjatuhkan pidana penjara kepada pejabat administrasi negara yang melanggar kode etik',
+      'Untuk mengalihkan kewenangan perdata pemerintah ke pengadilan agama'
     ],
     correctIndex: 1,
-    explanation: 'KUNCI JAWABAN RESMI PDF: Alasan yang dapat digunakan adalah: (1) Bertentangan dengan peraturan perundang-undangan: KTUN yang dikeluarkan tidak sesuai atau melanggar hukum yang berlaku; (2) Penyalahgunaan wewenang (detournement de pouvoir): Pejabat menggunakan kewenangannya untuk tujuan yang tidak sesuai dengan maksud pemberian wewenang tersebut; (3) Tindakan sewenang-wenang (willekeur): Keputusan diambil tanpa pertimbangan yang wajar atau melanggar Asas-Asas Umum Pemerintahan yang Baik (AAUPB).',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 22 & 23, Soal #3)'
-  },
-  {
-    id: 'ptun-soal-04',
-    topicId: 5,
-    topicTitle: 'Pemeriksaan Gugatan',
-    type: 'conceptual',
-    typeLabel: 'Soal Resmi PDF #4',
-    question: 'Jelaskan tujuan diselenggarakannya proses dismissal dan pemeriksaan persiapan dalam hukum acara PTUN!',
-    options: [
-      'Dismissal untuk memutus pokok perkara secara inkracht, pemeriksaan persiapan untuk mengeksekusi ganti rugi',
-      'Dismissal bertujuan menilai apakah gugatan memenuhi syarat untuk diproses atau tidak, sedangkan pemeriksaan persiapan bertujuan memperbaiki dan melengkapi gugatan serta mematangkan perkara sebelum sidang terbuka untuk umum',
-      'Dismissal untuk mediasi perdamaian para pihak, sedangkan pemeriksaan persiapan untuk mendengarkan saksi ahli secara tertutup',
-      'Dismissal untuk menguji kompetensi relatif Tergugat, sedangkan pemeriksaan persiapan untuk menentukan panjar biaya perkara'
-    ],
-    correctIndex: 1,
-    explanation: 'KUNCI JAWABAN RESMI PDF: Dismissal bertujuan menilai apakah gugatan memenuhi syarat untuk diproses atau tidak. Pemeriksaan persiapan bertujuan memperbaiki dan melengkapi gugatan serta mematangkan perkara sebelum sidang terbuka untuk umum.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 22 & 23, Soal #4)'
-  },
-  {
-    id: 'ptun-soal-05',
-    topicId: 6,
-    topicTitle: 'Tahapan Persidangan & Jenis Acara',
-    type: 'conceptual',
-    typeLabel: 'Soal Resmi PDF #5',
-    question: 'Sebutkan dan jelaskan secara singkat tiga jenis acara yang berlaku di Peradilan Tata Usaha Negara!',
-    options: [
-      'Acara Pidana, Acara Perdata, dan Acara Tata Usaha Negara Khusus',
-      'Acara Tingkat Pertama, Acara Banding Administratif, dan Acara Peninjauan Kembali',
-      'Acara Biasa (prosedur persidangan normal dengan tahapan lengkap), Acara Cepat (digunakan jika ada kepentingan mendesak dan diperiksa hakim tunggal), dan Acara Singkat (digunakan untuk memeriksa perlawanan terhadap penetapan dismissal)',
-      'Acara Mediasi Tertutup, Acara Pembuktian Terbuka, dan Acara Eksekusi Putusan'
-    ],
-    correctIndex: 2,
-    explanation: 'KUNCI JAWABAN RESMI PDF: Jenis acara dalam PTUN adalah: (1) Acara Biasa: prosedur persidangan normal dengan tahapan lengkap; (2) Acara Cepat: digunakan jika ada kepentingan mendesak dan diperiksa oleh hakim tunggal; (3) Acara Singkat: digunakan untuk memeriksa perlawanan terhadap penetapan dismissal.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 22, 23 & 24, Soal #5)'
+    explanation: 'Secara normatif, maksud dan tujuan dibentuknya PTUN adalah menegakkan asas legalitas dalam administrasi negara serta menjadi instrumen penguji keabsahan tindakan pemerintah berdasarkan peraturan perundang-undangan dan Asas-Asas Umum Pemerintahan yang Baik (AUPB).',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 01)'
   },
 
-  // 6-30: Comprehensive Substantive Questions strictly from PDF
-  // TOPIK 1: PENGANTAR
+  // 2. Pengertian Hukum Acara PTUN
   {
-    id: 'ptun-soal-06',
-    topicId: 1,
-    topicTitle: 'Pengantar Hukum Acara PTUN',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Tujuan utama pembentukan lembaga Peradilan Tata Usaha Negara (PTUN) adalah untuk melakukan judicial control. Apakah makna dari judicial control tersebut?',
-    options: [
-      'Mengawasi pembuatan undang-undang di lembaga legislatif agar tidak bertentangan dengan UUD 1945',
-      'Mengontrol secara yuridis tindakan pemerintahan yang dinilai melanggar ketentuan administrasi (maladministrasi) ataupun perbuatan bertentangan dengan hukum (abuse of power)',
-      'Memberikan izin eksekutif kepada pejabat pemerintah untuk melakukan tindakan penggusuran',
-      'Menjatuhkan hukuman pidana kurungan kepada aparatur sipil negara yang tidak disiplin'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 2, pembentukan PTUN bertujuan mengontrol secara yuridis (judicial control) tindakan pemerintahan yang dinilai melanggar ketentuan administrasi (maladministrasi) ataupun perbuatan yang bertentangan dengan hukum (abuse of power).',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 2, Bagian 1.b Latar Belakang)'
-  },
-  {
-    id: 'ptun-soal-07',
-    topicId: 1,
-    topicTitle: 'Pengantar Hukum Acara PTUN',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Regulasi manakah yang merupakan undang-undang perubahan kedua atas UU No. 5 Tahun 1986 tentang Peradilan Tata Usaha Negara?',
-    options: [
-      'Undang-Undang No. 9 Tahun 2004',
-      'Undang-Undang No. 30 Tahun 2014',
-      'Undang-Undang No. 51 Tahun 2009',
-      'Undang-Undang No. 14 Tahun 2002'
-    ],
-    correctIndex: 2,
-    explanation: 'Berdasarkan PDF Halaman 2–3, eksistensi PTUN diatur dalam UU No. 5 Tahun 1986, diubah pertama dengan UU No. 9 Tahun 2004, dan terakhir diubah dengan UU No. 51 Tahun 2009 yang menyempurnakan lembaga PTUN profesional dalam menjalankan fungsi kontrol yudisial.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 2-3, Bagian 1.b)'
-  },
-  {
-    id: 'ptun-soal-08',
-    topicId: 1,
-    topicTitle: 'Pengantar Hukum Acara PTUN',
+    id: 'ptun-amelia-03',
+    topicId: 2,
+    topicTitle: 'Topik 02: Pengertian Hukum Acara PTUN',
     type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Menurut Yahya Harahap sebagaimana dikutip dalam sumber, apakah yang dimaksud dengan "diversity jurisdiction" dalam kaitannya dengan kompetensi absolut?',
+    typeLabel: 'Relasi HTUN, PTUN, KTUN',
+    question: 'Bagaimanakah relasi fungsional antara Hukum Tata Usaha Negara (HTUN) materiil dengan Hukum Acara PTUN?',
     options: [
-      'Wewenang pengadilan untuk memeriksa perkara warga negara asing di Indonesia',
-      'Kewenangan bahwa tiap-tiap lingkungan peradilan mempunyai wewenang tertentu untuk mengadili suatu perkara berdasarkan materi pokok perkaranya',
-      'Kebebasan hakim untuk memilih hukum adat atau hukum positif dalam memutus sengketa',
-      'Kewenangan pengadilan tata usaha negara untuk memutus sengketa perdata ganti rugi'
+      'HTUN materiil mengatur sanksi pidana, sedangkan Hukum Acara PTUN mengatur pembuktian perdata',
+      'HTUN materiil mengatur norma substansi kewenangan pemerintahan, sedangkan Hukum Acara PTUN mengatur hukum formil prosedural untuk menegakkan HTUN melalui pengujian KTUN di pengadilan',
+      'Hukum Acara PTUN hanya berlaku apabila ada instruksi khusus dari Mahkamah Konstitusi',
+      'Kedua hukum tersebut memiliki objek dan subjek yang berdiri sendiri tanpa keterkaitan'
     ],
     correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 3, kewenangan absolut menurut Yahya Harahap didasarkan pada lingkungan kewenangan di mana tiap-tiap lingkungan mempunyai wewenang tertentu untuk mengadili suatu perkara (diversity jurisdiction) yang menciptakan yurisdiksi absolut sesuai subject matter of jurisdiction.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 3, Bagian 2 Kompetensi Absolut dan Relatif)'
+    explanation: 'HTUN materiil mengatur substansi wewenang, hak, dan kewajiban pejabat administrasi pemerintahan. Hukum Acara PTUN merupakan hukum formil yang mengatur tata cara penegakan norma materiil tersebut di hadapan pengadilan ketika terjadi sengketa atas penerbitan KTUN.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 02: Pengertian Hukum Acara PTUN)'
   },
 
-  // TOPIK 2: KOMPETENSI PTUN & SUBYEK GUGATAN
+  // 3. Kedudukan dan Struktur Peratun
   {
-    id: 'ptun-soal-09',
-    topicId: 2,
-    topicTitle: 'Kompetensi PTUN',
+    id: 'ptun-amelia-04',
+    topicId: 3,
+    topicTitle: 'Topik 03: Kedudukan dan Struktur Peratun',
     type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Bagaimanakah perluasan kompetensi absolut PTUN setelah berlakunya UU No. 30 Tahun 2014 tentang Administrasi Pemerintahan (UU AP)?',
+    typeLabel: 'Hierarki Peratun',
+    question: 'Bagaimanakah struktur hierarki lingkungan Peradilan Tata Usaha Negara di Indonesia dalam sistem satu atap kekuasaan kehakiman?',
     options: [
-      'PTUN hanya berwenang memeriksa sengketa pemilu dan tindak pidana pilkada',
-      'Kompetensi absolut PTUN diperluas mencakup sengketa tindakan faktual pejabat, permohonan keputusan fiktif positif (diam), dan pengujian penyalahgunaan wewenang',
-      'PTUN dilarang memeriksa sengketa kepegawaian dan dialihkan sepenuhnya ke pengadilan negeri',
-      'Kompetensi absolut PTUN dihapuskan dan digabungkan ke Peradilan Umum'
+      'Pengadilan Negeri → Pengadilan Tinggi → Mahkamah Konstitusi',
+      'PTUN (Tingkat Pertama) → PTTUN (Tingkat Banding) → Mahkamah Agung (Puncak Kasasi & PK)',
+      'PTTUN (Tingkat Pertama) → PTUN (Tingkat Banding) → Kementerian Hukum dan HAM',
+      'Badan Pertanahan Nasional → Pengadilan Pajak → Mahkamah Agung'
     ],
     correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 4, setelah UU No. 30 Tahun 2014 tentang Administrasi Pemerintahan (UU AP), kompetensi absolut PTUN diperluas secara signifikan mencakup sengketa tindakan faktual pejabat, keputusan fiktif positif (diam), dan penyalahgunaan wewenang.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 4, Bagian 2)'
-  },
-  {
-    id: 'ptun-soal-10',
-    topicId: 2,
-    topicTitle: 'Kompetensi PTUN',
-    type: 'scenario',
-    typeLabel: 'Studi Kasus',
-    question: 'Budi mengajukan permohonan izin lingkungan ke Dinas Lingkungan Hidup. Hingga batas waktu hukum terlampaui, dinas tidak memberi jawaban (bersikap diam). Berdasarkan konsep UU Administrasi Pemerintahan, bagaimanakah status hukum sikap diam pejabat tersebut?',
-    options: [
-      'Dianggap sebagai penolakan permohonan secara otomatis (fiktif negatif)',
-      'Dianggap permohonan tersebut dikabulkan (fiktif positif) dan pemohon berhak memohon penetapan penerbitan ke PTUN',
-      'Menjadi tindak pidana korupsi yang langsung dilimpahkan ke Pengadilan Tipikor',
-      'Permohonan batal demi hukum dan harus diulang dari awal'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 4 dan Halaman 15, dalam konsep UUAP, sikap diam pejabat dianggap sebagai persetujuan (fiktif positif), berbeda dengan paradigma UU Peratun lama yang menganggap sikap diam sebagai penolakan.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 4 & Halaman 15)'
-  },
-  {
-    id: 'ptun-soal-11',
-    topicId: 2,
-    topicTitle: 'Kompetensi PTUN',
-    type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Dalam intervensi pihak ketiga pada persidangan PTUN, apakah perbedaan antara Voeging dan Tussenkomst?',
-    options: [
-      'Voeging diajukan oleh jaksa, sedangkan Tussenkomst diajukan oleh Tergugat',
-      'Voeging adalah intervensi bergabung memihak Penggugat atau Tergugat karena kesamaan kepentingan hukum, sedangkan Tussenkomst adalah intervensi penengah yang masuk atas inisiatif sendiri untuk membela kepentingannya secara mandiri',
-      'Voeging diajukan setelah putusan akhir, sedangkan Tussenkomst diajukan saat pemeriksaan persiapan',
-      'Voeging berlaku dalam acara cepat, sedangkan Tussenkomst hanya dalam acara singkat'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 4, intervensi pihak ketiga terdiri atas: (1) Voeging (intervensi bergabung): pihak ketiga bergabung dengan penggugat atau tergugat karena memiliki kepentingan hukum yang sama; (2) Tussenkomst (intervensi penengah): pihak ketiga masuk dengan inisiatif sendiri karena kepentingannya tersentuh oleh sengketa, menjadi pihak mandiri.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 4, Bagian Subyek Gugatan)'
-  },
-  {
-    id: 'ptun-soal-12',
-    topicId: 2,
-    topicTitle: 'Kompetensi PTUN',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Kapan batas waktu paling lambat bagi pihak ketiga untuk mengajukan permohonan intervensi dalam proses persidangan di PTUN?',
-    options: [
-      'Paling lambat 14 hari sebelum dismissal diucapkan',
-      'Sebelum tahap pembuktian atau selambat-lambatnya sebelum putusan akhir',
-      'Hanya pada saat pemeriksaan persiapan berlangsung',
-      'Setelah putusan akhir berkekuatan hukum tetap (inkracht)'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 4, waktu pengajuan permohonan intervensi pihak ketiga diajukan sebelum pembuktian atau selambat-lambatnya sebelum putusan akhir.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 4, Bagian Subyek Gugatan butir ii)'
+    explanation: 'Struktur hierarki peradilan administrasi negara di Indonesia terdiri dari PTUN di tingkat pertama (kabupaten/kota), PTTUN di tingkat banding (provinsi), dan berpuncak pada Mahkamah Agung (MA) sebagai pengadilan kasasi dan peninjauan kembali dalam sistem peradilan satu atap.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 03: Kedudukan & Struktur)'
   },
 
-  // TOPIK 3: GUGATAN & OBJEK SENGKETA
+  // 4. Subjek Sengketa TUN
   {
-    id: 'ptun-soal-13',
-    topicId: 3,
-    topicTitle: 'Gugatan PTUN',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Berapakah tenggang waktu pengajuan gugatan ke PTUN sejak diterimanya atau diumumkannya KTUN yang merugikan penggugat?',
-    options: [
-      '14 hari kerja',
-      '30 hari kalender',
-      '90 hari sejak keputusan diterima atau diumumkan',
-      '1 tahun sejak diterbitkan'
-    ],
-    correctIndex: 2,
-    explanation: 'Berdasarkan PDF Halaman 7, surat gugatan harus memuat uraian bahwa gugatan diajukan masih dalam batas waktu 90 hari sejak keputusan diterima atau diumumkan.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 7, Bagian 3.b Isi Gugatan butir iii)'
-  },
-  {
-    id: 'ptun-soal-14',
-    topicId: 3,
-    topicTitle: 'Gugatan PTUN',
-    type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Apakah yang dimaksud dengan sifat "Konkret, Individual, dan Final" dalam unsur Keputusan Tata Usaha Negara (KTUN) menurut Pasal 1 angka 9 UU Peratun?',
-    options: [
-      'Konkret berarti ada sanksi pidana, individual berarti hanya pejabat tertentu, final berarti tidak dapat diajukan kasasi',
-      'Konkret berarti objek nyata dan berwujud, individual berarti ditujukan kepada orang/badan hukum tertentu, dan final berarti definitif serta tidak memerlukan persetujuan instansi atasan lagi',
-      'Konkret berarti tertulis di atas kertas segel, individual berarti rahasia, final berarti diputus oleh presiden',
-      'Konkret berarti disetujui DPR, individual berarti berlaku untuk seluruh rakyat, final berarti berlaku selamanya'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 5, unsur KTUN meliputi: Bersifat Konkret (nyata dan berwujud walaupun bentuknya elektronik), Individual (ditujukan kepada individu atau badan hukum tertentu), dan Final (keputusan tersebut bersifat akhir dan tidak memerlukan persetujuan lebih lanjut).',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 5, Bagian Obyek Gugatan)'
-  },
-  {
-    id: 'ptun-soal-15',
-    topicId: 3,
-    topicTitle: 'Gugatan PTUN',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Manakah di antara keputusan berikut ini yang BUKAN merupakan objek sengketa PTUN berdasarkan Pasal 2 UU No. 9 Tahun 2004?',
-    options: [
-      'Surat Keputusan Pemberhentian Dengan Hormat Tidak Atas Permintaan Sendiri seorang PNS',
-      'Surat Keputusan Pembatalan Sertipikat Hak Milik Tanah oleh Kepala Kantor Pertanahan',
-      'Keputusan yang menyangkut perbuatan hukum perdata seperti perjanjian jual beli antara instansi pemerintah dan perseorangan',
-      'Surat Keputusan Penolakan Izin Usaha Pertambangan oleh Gubernur'
-    ],
-    correctIndex: 2,
-    explanation: 'Berdasarkan PDF Halaman 6, Pasal 2 UU No. 9 Tahun 2004 mengecualikan perbuatan hukum perdata (keputusan yang menyangkut ranah hukum perdata, seperti perjanjian jual beli antara instansi pemerintah dan perseorangan) dari objek sengketa PTUN.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 6, Bagian Pengecualian Objek Sengketa butir iii)'
-  },
-  {
-    id: 'ptun-soal-16',
-    topicId: 3,
-    topicTitle: 'Gugatan PTUN',
-    type: 'scenario',
-    typeLabel: 'Studi Kasus',
-    question: 'Walikota menerbitkan Peraturan Daerah (Perda) tentang penataan pedagang kaki lima yang berlaku bagi seluruh warga kota. Seorang pedagang merasa dirugikan dan menggugat Perda tersebut ke PTUN. Apakah gugatan tersebut dapat diterima oleh PTUN?',
-    options: [
-      'Diterima, karena Walikota adalah Pejabat Tata Usaha Negara di daerah',
-      'Tidak dapat diterima, karena pengaturan bersifat umum (regeling) memuat norma hukum yang berlaku secara umum dan dikecualikan dari objek sengketa PTUN menurut Pasal 2 UU 9/2004',
-      'Diterima, asalkan diajukan sebelum batas waktu 14 hari',
-      'Diterima, asalkan ada permohonan penundaan pelaksanaan Perda'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 6, Pasal 2 butir iv UU 9/2004 menegaskan bahwa pengaturan bersifat umum (keputusan yang memuat norma hukum yang berlaku secara umum / peraturan perundang-undangan, bukan bersifat konkret dan individual) dikecualikan dari objek sengketa di PTUN.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 6, Bagian Pengecualian butir iv)'
-  },
-
-  // TOPIK 4: PENGAJUAN GUGATAN & UPAYA ADMINISTRATIF
-  {
-    id: 'ptun-soal-17',
+    id: 'ptun-amelia-05',
     topicId: 4,
-    topicTitle: 'Pengajuan Gugatan & Upaya Administratif',
+    topicTitle: 'Topik 04: Subjek Sengketa TUN',
     type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Apakah perbedaan mendasar antara pengujian sengketa dalam upaya administratif internal dengan pengujian peradilan administrasi murni (PTUN)?',
+    typeLabel: 'Prinsip Tergugat',
+    question: 'Berdasarkan materi resmi, apakah prinsip fundamental dalam menentukan pihak Tergugat dalam sengketa tata usaha negara?',
     options: [
-      'Upaya administratif hanya menguji rechtmatigheid, sedangkan PTUN menguji doelmatigheid',
-      'Upaya administratif mencakup pengujian rechtmatigheid (hukum) dan doelmatigheid (kebijakan/manfaat) secara ex nunc, sedangkan peradilan administrasi murni hanya menguji aspek rechtmatigheid (keabsahan hukum) atas fakta saat keputusan diambil',
-      'Upaya administratif diputus oleh hakim agung, sedangkan PTUN diputus oleh pejabat dinas',
-      'Upaya administratif mengharuskan sanksi kurungan pidana, sedangkan PTUN hanya denda perdata'
+      'Yang digugat adalah pribadi orangnya beserta seluruh harta kekayaan keluarganya',
+      'Yang digugat adalah jabatannya, bukan pribadi orangnya',
+      'Tergugat harus selalu Presiden Republik Indonesia sebagai kepala pemerintahan tertinggi',
+      'Tergugat tidak perlu disebutkan jabatannya, cukup nama instansi pusatnya saja'
     ],
     correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 10–11, upaya administratif mencakup pengujian doelmatigheid (efektivitas, efisiensi, kemanfaatan umum) dan rechtmatigheid (kesesuaian hukum) sehingga keputusan dapat diubah/diganti (ex nunc). Sebaliknya, peradilan administrasi murni menurut Rochmat Soemitro hanya menguji aspek rechtmatigheid (aspek hukum murni).',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 10-11, Bagian Ciri Utama Upaya Administratif)'
+    explanation: 'PRINSIP UTAMA: "Yang digugat adalah jabatannya, bukan pribadi orangnya." Gugatan ditujukan kepada fungsi/institusi jabatan publik yang menerbitkan KTUN. Apabila terjadi mutasi atau pergantian pejabat, gugatan tetap berjalan sah mengikat pejabat baru pemegang jabatan tersebut.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 04: Subjek Sengketa TUN)'
   },
   {
-    id: 'ptun-soal-18',
+    id: 'ptun-amelia-06',
     topicId: 4,
-    topicTitle: 'Pengajuan Gugatan & Upaya Administratif',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Dalam sejarah hukum Indonesia masa kolonial Hindia Belanda, cikal bakal peradilan administrasi bermula dari lembaga quasi peradilan pajak yang bernama:',
-    options: [
-      'Landraad voor Bestuurszaken',
-      'Raad van Beroep voor Belastingzaken (Majelis Pertimbangan Pajak / MPP)',
-      'Hoge Raad der Nederlanden',
-      'Weeskamer voor Belasting'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 9, pada masa kolonial Hindia Belanda, sengketa administrasi ditangani lembaga quasi peradilan administrasi bernama Raad van Beroep voor Belastingzaken atau Majelis Pertimbangan Pajak (MPP), yang kemudian bertransformasi menjadi BPSP dan akhirnya Pengadilan Pajak.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 9, Bagian 4.a.i)'
-  },
-  {
-    id: 'ptun-soal-19',
-    topicId: 4,
-    topicTitle: 'Pengajuan Gugatan & Upaya Administratif',
+    topicTitle: 'Topik 04: Subjek Sengketa TUN',
     type: 'scenario',
-    typeLabel: 'Studi Kasus',
-    question: 'Dalam Putusan PTUN Bandung Nomor 104/G/2014/PTUN-BDG yang dibahas dalam sumber, apakah pokok sengketa yang diajukan Penggugat?',
+    typeLabel: 'Intervensi Pihak Ketiga',
+    question: 'Dalam sengketa pembatalan izin tambang antara warga desa melawan Bupati, PT Sejahtera (pemegang izin tambang) mengajukan permohonan masuk ke persidangan untuk mendukung posisi Bupati. Bentuk intervensi apakah yang dilakukan PT Sejahtera?',
     options: [
-      'Gugatan ganti rugi pembebasan tanah proyek jalan tol Jawa Barat',
-      'Gugatan terhadap SK Gubernur Jawa Barat Nomor 888/Kep.830-BKD/2014 tentang pemberhentian tidak dengan hormat sebagai PNS karena tindak pidana korupsi setelah menempuh seluruh upaya administratif',
-      'Gugatan pembatalan izin lingkungan pendirian pabrik semen',
-      'Gugatan sengketa pemilihan kepala daerah serentak'
+      'Tussenkomst (menengahi membela hak sendiri yang bertentangan dengan kedua pihak)',
+      'Voeging (menggabungkan diri untuk menyertai dan mendukung salah satu pihak)',
+      'Eksaminasi Publik (pengujian akademis berkas perkara)',
+      'Rekonvensi (gugatan balik Tergugat kepada Penggugat)'
     ],
     correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 11, Putusan PTUN Bandung No. 104/G/2014/PTUN-BDG berkaitan dengan gugatan terhadap SK Gubernur Jawa Barat No. 888/Kep.830-BKD/2014 tentang pemberhentian tidak hormat sebagai PNS karena tindak pidana korupsi, di mana penggugat telah menempuh seluruh upaya administratif sebelum ke PTUN.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 11, Bagian Contoh Upaya Administratif)'
+    explanation: 'Voeging adalah bentuk intervensi pihak ketiga yang masuk ke persidangan untuk membela kepentingannya dengan cara bergabung dan mendukung salah satu pihak (dalam hal ini mendukung Tergugat agar izin tambang tidak dibatalkan).',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 04 & 29: Intervensi Pihak Ketiga)'
   },
 
-  // TOPIK 5: PEMERIKSAAN GUGATAN (DISMISSAL & PERSIAPAN)
+  // 5. Wewenang Badan / Pejabat TUN
   {
-    id: 'ptun-soal-20',
+    id: 'ptun-amelia-07',
     topicId: 5,
-    topicTitle: 'Pemeriksaan Gugatan',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Siapakah pejabat peradilan yang berwenang memimpin dan mengeluarkan penetapan dalam proses dismissal menurut Pasal 62 UU Peratun?',
-    options: [
-      'Majelis Hakim pemeriksa perkara',
-      'Panitera Pengadilan Tata Usaha Negara',
-      'Ketua Pengadilan Tata Usaha Negara (didampingi Panitera/Wakil Panitera)',
-      'Hakim Pengawas Bidang Mahkamah Agung'
-    ],
-    correctIndex: 2,
-    explanation: 'Berdasarkan PDF Halaman 11–13, proses dismissal dilakukan oleh Ketua Pengadilan untuk memutuskan dalam suatu penetapan bahwa gugatan diterima atau tidak, berdasar atau tidak, dan majelis hakim belum dibentuk pada saat itu.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 11-13, Bagian 5.a Dismissal Proses)'
-  },
-  {
-    id: 'ptun-soal-21',
-    topicId: 5,
-    topicTitle: 'Pemeriksaan Gugatan',
+    topicTitle: 'Topik 05: Wewenang Badan / Pejabat TUN',
     type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Berapakah tenggang waktu bagi penggugat untuk mengajukan perlawanan (verzet) terhadap penetapan dismissal Ketua Pengadilan?',
+    typeLabel: 'Sumber Wewenang Mandat',
+    question: 'Bagaimanakah peralihan tanggung jawab dan tanggung gugat dalam pelaksanaan kewenangan melalui jalur MANDAT?',
     options: [
-      '7 hari sejak gugatan didaftarkan',
-      '14 hari terhitung sejak Ketua Pengadilan mengucapkan penetapan di hadapan para pihak atau sejak pemberitahuan penetapan diterima',
-      '30 hari sejak pemeriksaan persiapan dimulai',
-      '90 hari sejak KTUN diterbitkan'
+      'Tanggung jawab dan tanggung gugat beralih sepenuhnya secara permanen kepada penerima mandat',
+      'Tanggung jawab dan tanggung gugat TIDAK BERALIH, melainkan tetap berada pada pemberi mandat (mandans)',
+      'Tanggung jawab dihapuskan oleh undang-undang karena sifatnya sukarela',
+      'Tanggung jawab beralih kepada ketua pengadilan setempat'
     ],
     correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 12, jika gugatan dinyatakan tidak lolos dismissal, penggugat berhak mengajukan perlawanan (verzet) dalam waktu 14 (empat belas) hari terhitung sejak Ketua Pengadilan mengucapkan penetapan di hadapan kedua belah pihak atau sejak pemberitahuan penetapan.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 12, Bagian Dismissal Proses)'
+    explanation: 'Pada MANDAT, yang terjadi hanyalah penugasan pelaksanaan tugas atas nama pemberi mandat, bukan pelimpahan wewenang. Akibatnya, tanggung jawab dan tanggung gugat yuridis tetap berada pada pihak pemberi mandat (mandans). Berbeda dengan DELEGASI di mana tanggung jawab beralih kepada penerima delegasi.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 05: Wewenang Badan/Pejabat TUN)'
   },
   {
-    id: 'ptun-soal-22',
+    id: 'ptun-amelia-08',
     topicId: 5,
-    topicTitle: 'Pemeriksaan Gugatan',
+    topicTitle: 'Topik 05: Wewenang Badan / Pejabat TUN',
     type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Apabila perlawanan (verzet) atas penetapan dismissal DITOLAK oleh Majelis Hakim yang memeriksanya, upaya hukum apakah yang dapat ditempuh oleh Penggugat?',
+    typeLabel: 'Atribusi Wewenang',
+    question: 'Apakah yang dimaksud dengan perolehan wewenang secara ATRIBUSI menurut hukum administrasi?',
     options: [
-      'Mengajukan permohonan banding ke Pengadilan Tinggi Tata Usaha Negara',
-      'Mengajukan kasasi langsung ke Mahkamah Agung',
-      'Tidak tersedia upaya hukum apapun (baik biasa maupun luar biasa), putusan bersifat final; satu-satunya cara adalah mengajukan gugatan baru jika tenggang waktu masih ada',
-      'Mengajukan peninjauan kembali ke Mahkamah Konstitusi'
-    ],
-    correctIndex: 2,
-    explanation: 'Berdasarkan PDF Halaman 12, apabila verzet ditolak oleh Majelis Hakim, maka tidak ada lagi upaya hukum yang dapat ditempuh penggugat. Terhadap putusan perlawanan dismissal tidak tersedia upaya hukum apapun (panitera wajib membuat akta penolakan banding). Satu-satunya kemungkinan adalah mengajukan gugatan baru.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 12, Bagian Dismissal Proses)'
-  },
-  {
-    id: 'ptun-soal-23',
-    topicId: 5,
-    topicTitle: 'Pemeriksaan Gugatan',
-    type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Apakah yang melatarbelakangi diterapkannya asas kompensasi (ongelijkheidscompensatie) dalam tahap pemeriksaan persiapan di PTUN?',
-    options: [
-      'Kewajiban pemerintah memberikan uang ganti rugi kepada hakim peradilan',
-      'Asumsi ketidakseimbangan kedudukan di mana warga negara berkedudukan lebih lemah dibanding pejabat pemegang kekuasaan publik, sehingga hakim wajib aktif membantu penyempurnaan gugatan',
-      'Kewajiban penggugat membayar kompensasi panjar perkara dua kali lipat',
-      'Penyeimbangan jumlah perkara perdata dengan perkara pidana di pengadilan'
+      'Pelimpahan wewenang sementara dari atasan ke bawahan',
+      'Pemberian wewenang baru secara langsung oleh peraturan perundang-undangan (UUD 1945 atau Undang-Undang)',
+      'Pengambilalihan kewenangan secara paksa dalam keadaan perang',
+      'Penugasan teknis operasional tanpa dasar hukum tertulis'
     ],
     correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 14, ketidakseimbangan terjadi karena penggugat sebagai orang/badan hukum perdata berada pada posisi lebih lemah dibandingkan tergugat pemegang kekuasaan publik. Untuk menyeimbangkannya diterapkan asas kompensasi (ongelijkheidscompensatie) dengan memberikan kemudahan kepada penggugat melalui bimbingan perbaikan gugatan oleh hakim.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 14, Bagian Pemeriksaan Persiapan)'
-  },
-  {
-    id: 'ptun-soal-24',
-    topicId: 5,
-    topicTitle: 'Pemeriksaan Gugatan',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Berapakah tenggang waktu pemeriksaan persiapan menurut Pasal 63 ayat (2) huruf (a) UU Peratun, dan apa akibatnya jika penggugat tidak memenuhi perbaikan karena kelalaiannya?',
-    options: [
-      '14 hari; perkara otomatis diputus verstek',
-      '30 hari; jika penggugat tidak hadir atau tidak mengikuti saran hakim melebihi batas waktu tersebut, Majelis Hakim dapat memutuskan gugatan tidak dapat diterima',
-      '60 hari; berkas perkara dialihkan ke Kejaksaan Negeri',
-      '90 hari; gugatan dianggap dikabulkan seluruhnya'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 15, tenggang waktu pemeriksaan persiapan adalah 30 hari sejak pemeriksaan pertama. Jika penggugat tidak hadir atau tidak mengikuti saran hakim sehingga melebihi 30 hari, Majelis Hakim dapat memutuskan gugatan tidak dapat diterima sesuai Pasal 63 ayat (3) UU Peratun.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 15, Bagian Pemeriksaan Persiapan)'
+    explanation: 'Atribusi adalah perolehan wewenang baru yang diberikan secara langsung oleh peraturan perundang-undangan (UUD 1945 atau undang-undang) kepada badan atau pejabat pemerintahan tertentu.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 05)'
   },
 
-  // TOPIK 6: TAHAPAN PERSIDANGAN & JENIS ACARA
+  // 6. Tindakan Hukum TUN
   {
-    id: 'ptun-soal-25',
+    id: 'ptun-amelia-09',
     topicId: 6,
-    topicTitle: 'Tahapan Persidangan & Jenis Acara',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Berdasarkan Surat Tuada Ulditun tanggal 14 Oktober 1993, bagaimanakah sifat persidangan pemeriksaan gugatan perlawanan (verzet) dengan Acara Singkat?',
-    options: [
-      'Sidang dilakukan terbuka untuk umum sejak awal hingga akhir putusan',
-      'Pemeriksaan gugatan perlawanan dilakukan secara tertutup, akan tetapi pengucapan putusannya harus diucapkan dalam sidang terbuka untuk umum',
-      'Pemeriksaan dilakukan secara tertulis tanpa persidangan sama sekali',
-      'Sidang dilakukan tertutup sepenuhnya termasuk pengucapan putusannya'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 16–17 butir iv, pemeriksaan gugatan perlawanan dilakukan secara tertutup, akan tetapi pengucapan putusannya harus diucapkan dalam sidang terbuka untuk umum.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 16-17, Bagian 6.a Acara Singkat)'
-  },
-  {
-    id: 'ptun-soal-26',
-    topicId: 6,
-    topicTitle: 'Tahapan Persidangan & Jenis Acara',
+    topicTitle: 'Topik 06: Tindakan Hukum Tata Usaha Negara',
     type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Dalam pemeriksaan Acara Cepat (Pasal 98 UU Peratun), siapakah yang memeriksa perkara dan berapakah tenggang waktu jawaban serta pembuktian?',
+    typeLabel: 'Sifat Tindakan Hukum',
+    question: 'Mengapa tindakan hukum tata usaha negara dikualifikasikan sebagai perbuatan sepihak (eenzijdige rechtshandeling)?',
     options: [
-      'Diperiksa oleh Majelis Hakim 3 orang; tenggang waktu 30 hari',
-      'Diperiksa oleh Hakim Tunggal yang ditunjuk Ketua PTUN; tenggang waktu jawaban dan pembuktian masing-masing pihak tidak lebih dari 14 hari',
-      'Diperiksa oleh Panitera Pengganti; tenggang waktu 7 hari',
-      'Diperiksa oleh Hakim Ad Hoc; tenggang waktu 60 hari'
+      'Karena harus selalu ditandatangani oleh satu orang pejabat saja',
+      'Karena lahir atas dasar kewenangan publik penguasa dan berlaku mengikat tanpa memerlukan persetujuan dari pihak yang dituju',
+      'Karena tidak boleh ada saksi yang mengetahui terbitnya keputusan tersebut',
+      'Karena hanya dapat menimbulkan kerugian bagi satu orang saja'
     ],
     correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 17, jika permohonan Acara Cepat dikabulkan, Ketua PTUN menunjuk hakim tunggal. Dalam pemeriksaan perkara, tenggang waktu jawaban dan pembuktian masing-masing pihak tidak lebih dari 14 hari.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 17, Bagian 6.b Acara Cepat)'
+    explanation: 'Tindakan hukum TUN bersifat sepihak (eenzijdige rechtshandeling) karena bersumber dari hukum publik di mana penguasa menetapkan status hukum atau kewajiban bagi warga negara berdasarkan wewenang undang-undang tanpa membutuhkan persetujuan pihak yang bersangkutan.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 06: Tindakan Hukum TUN)'
+  },
+
+  // 7. Objek Sengketa PTUN
+  {
+    id: 'ptun-amelia-10',
+    topicId: 7,
+    topicTitle: 'Topik 07: Objek Sengketa PTUN',
+    type: 'conceptual',
+    typeLabel: 'Unsur Konkret, Individual, Final',
+    question: 'Apakah yang dimaksud dengan unsur "FINAL" dalam Pasal 1 angka 9 UU No. 51 Tahun 2009 tentang KTUN?',
+    options: [
+      'Keputusan tersebut tidak boleh digugat sama sekali oleh siapa pun',
+      'Keputusan tersebut sudah definitif, tidak memerlukan persetujuan dari instansi atasan lagi, dan telah menimbulkan akibat hukum',
+      'Keputusan tersebut merupakan putusan kasasi Mahkamah Agung',
+      'Keputusan tersebut hanya berlaku selama satu tahun kalender'
+    ],
+    correctIndex: 1,
+    explanation: 'Unsur "Final" bermakna bahwa keputusan tata usaha negara tersebut sudah definitif, telah matang (ripe for review), tidak lagi memerlukan persetujuan atau pengesahan lanjutan dari instansi atasan, dan sudah dapat menimbulkan akibat hukum seketika.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 07: Objek Sengketa PTUN)'
   },
   {
-    id: 'ptun-soal-27',
-    topicId: 6,
-    topicTitle: 'Tahapan Persidangan & Jenis Acara',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Dalam persidangan Acara Biasa PTUN, apabila salah satu pihak tidak hadir dalam sidang dan sidang harus ditunda, berapakah batas waktu maksimal penundaan sidang berikutnya?',
+    id: 'ptun-amelia-11',
+    topicId: 7,
+    topicTitle: 'Topik 07: Objek Sengketa PTUN',
+    type: 'scenario',
+    typeLabel: 'Unsur Individual',
+    question: 'Walikota menerbitkan Peraturan Walikota yang menetapkan tarif parkir baru untuk seluruh pengguna jalan di wilayah kota. Mengapa Peraturan Walikota tersebut BUKAN merupakan KTUN?',
     options: [
-      'Tidak boleh lebih dari 6 hari',
-      'Tidak boleh lebih dari 14 hari',
-      'Tidak boleh lebih dari 30 hari',
-      'Bebas ditentukan oleh panitera'
+      'Karena walikota bukan merupakan pejabat tata usaha negara',
+      'Karena peraturan tersebut bersifat umum abstrak (regeling) dan tidak bersifat individual bagi subjek tertentu',
+      'Karena belum disahkan oleh gubernur',
+      'Karena tarif parkir merupakan urusan hukum pidana'
+    ],
+    correctIndex: 1,
+    explanation: 'Peraturan Walikota adalah regeling (pengaturan umum yang berlaku bagi siapa saja yang menggunakan jalan), bukan beschikking/KTUN yang bersifat individual (ditujukan kepada subjek hukum tertentu yang ditunjuk secara spesifik). Pengujiannya masuk ranah Hak Uji Materiil di MA.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 07)'
+  },
+
+  // 8. Memo / Nota Dinas
+  {
+    id: 'ptun-amelia-12',
+    topicId: 8,
+    topicTitle: 'Topik 08: Memo / Nota Dinas sebagai Objek Gugatan',
+    type: 'conceptual',
+    typeLabel: 'Parameter Memo Dinas',
+    question: 'Apakah memo atau nota dinas dapat dijadikan objek sengketa di PTUN menurut bahan perkuliahan?',
+    options: [
+      'Sama sekali tidak bisa karena bukan berbentuk Surat Keputusan (SK) resmi',
+      'Dapat digugat sepanjang memenuhi 5 parameter yuridis (jelas pejabat penerbit, isi, tujuan, konkret-individual-final, dan menimbulkan akibat hukum)',
+      'Hanya bisa digugat apabila disetujui secara tertulis oleh Menteri Kehakiman',
+      'Hanya bisa digugat di peradilan umum sebagai sengketa perdata'
+    ],
+    correctIndex: 1,
+    explanation: 'Hakim PTUN berpegang pada prinsip substansi di atas formalitas naskah dinas. Suatu memo atau nota dinas dapat digugat sebagai KTUN jika memenuhi 5 parameter: jelas badan/pejabat yang mengeluarkan, jelas maksud dan isinya, jelas subjek yang dituju, bersifat individual-konkret-final, dan menimbulkan akibat hukum nyata bagi penggugat.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 08: Memo/Nota Dinas)'
+  },
+
+  // 9. Perluasan Pengertian KTUN
+  {
+    id: 'ptun-amelia-13',
+    topicId: 9,
+    topicTitle: 'Topik 09: Perluasan Pengertian KTUN',
+    type: 'scenario',
+    typeLabel: 'Fiktif Negatif Pasal 3',
+    question: 'Seorang warga mengajukan permohonan sertifikat hak milik ke Kantor Pertanahan. Peraturan perundang-undangan dasar tidak menentukan jangka waktu pemutusan. Berapa lamakah warga harus menunggu sebelum sikap diam pejabat tersebut dianggap sebagai penolakan (Fiktif Negatif)?',
+    options: [
+      '14 hari kerja sejak permohonan diajukan',
+      '4 (empat) bulan sejak permohonan diterima lengkap oleh kantor pertanahan',
+      '1 tahun sejak diterimanya surat bukti tanda terima berkas',
+      '30 hari kalender tanpa syarat'
+    ],
+    correctIndex: 1,
+    explanation: 'Berdasarkan Pasal 3 ayat (3) UU Peratun, apabila peraturan dasarnya tidak menentukan jangka waktu, maka setelah lewat waktu 4 (empat) bulan sejak diterimanya permohonan tanpa adanya keputusan dari badan/pejabat TUN, hal itu dipersamakan dengan keputusan penolakan (Fiktif Negatif).',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 09: Perluasan KTUN)'
+  },
+
+  // 10. Keputusan yang Bukan Objek Sengketa
+  {
+    id: 'ptun-amelia-14',
+    topicId: 10,
+    topicTitle: 'Topik 10: Keputusan yang Bukan Objek Sengketa',
+    type: 'conceptual',
+    typeLabel: 'Pengecualian Pasal 2 & 49',
+    question: 'Berdasarkan Pasal 2 dan Pasal 49 UU Peratun, manakah keputusan berikut yang TIDAK DAPAT digugat di PTUN?',
+    options: [
+      'Surat Keputusan Bupati tentang pemberhentian pegawai negeri sipil',
+      'Surat Keputusan yang dikeluarkan dalam keadaan perang, bahaya, atau bencana alam untuk kepentingan umum',
+      'Keputusan pencabutan izin trayek angkutan umum',
+      'Penolakan permohonan izin mendirikan bangunan'
+    ],
+    correctIndex: 1,
+    explanation: 'Pasal 49 UU Peratun secara tegas mengecualikan keputusan yang dikeluarkan dalam keadaan perang, keadaan bahaya, keadaan bencana alam, atau keadaan mendesak untuk kepentingan umum berdasarkan peraturan perundang-undangan dari yurisdiksi PTUN.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 10: Pengecualian Objek)'
+  },
+  {
+    id: 'ptun-amelia-15',
+    topicId: 10,
+    topicTitle: 'Topik 10: Keputusan yang Bukan Objek Sengketa',
+    type: 'conceptual',
+    typeLabel: 'Formula Objek Sengketa',
+    question: 'Apakah formula matematika yuridis kelayakan objek sengketa PTUN yang dirumuskan dalam materi perkuliahan?',
+    options: [
+      'Objek = (Pasal 53 + Pasal 55) dibagi Pasal 56',
+      'Objek = (Pasal 1 angka 9 + Pasal 3) MINUS (Pasal 2 + Pasal 49)',
+      'Objek = KUHPerdata dikurangi KUHPidana',
+      'Objek = UU PTUN ditambah UU Ormas'
+    ],
+    correctIndex: 1,
+    explanation: 'Bahan ajar materi perkuliahan merumuskan formula baku: Objek sah gugatan PTUN = (Pasal 1 angka 9 + Pasal 3) MINUS (Pasal 2 + Pasal 49).',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 10)'
+  },
+
+  // 11. Contoh Sengketa TUN
+  {
+    id: 'ptun-amelia-16',
+    topicId: 11,
+    topicTitle: 'Topik 11: Tipologi dan Contoh Sengketa TUN',
+    type: 'scenario',
+    typeLabel: 'Entitas Swasta Fungsi Publik',
+    question: 'Sebuah lembaga sertifikasi swasta ditunjuk resmi oleh undang-undang untuk menyelenggarakan uji kompetensi dan penerbitan lisensi profesi publik. Jika lembaga tersebut menolak menerbitkan lisensi peserta tanpa dasar hukum, apakah keputusannya dapat digugat ke PTUN?',
+    options: [
+      'Tidak bisa karena badan tersebut berbadan hukum privat/swasta',
+      'Bisa, karena badan swasta tersebut sedang melaksanakan urusan pemerintahan berdasarkan mandat peraturan perundang-undangan (Pasal 1 angka 8 UU 51/2009)',
+      'Hanya bisa dilaporkan ke kepolisian sebagai tindak pidana penipuan',
+      'Harus diselesaikan melalui arbitrase internasional'
+    ],
+    correctIndex: 1,
+    explanation: 'Berdasarkan kriteria fungsional Pasal 1 angka 8 UU No. 51 Tahun 2009, Badan/Pejabat TUN mencakup entitas swasta yang diserahi tugas melaksanakan urusan pemerintahan. Keputusan atau penolakannya dikualifikasikan sebagai KTUN yang dapat diuji di PTUN.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 11: Contoh Sengketa TUN)'
+  },
+
+  // 12. Struktur Surat Gugatan
+  {
+    id: 'ptun-amelia-17',
+    topicId: 12,
+    topicTitle: 'Topik 12: Struktur Surat Gugatan di PTUN',
+    type: 'conceptual',
+    typeLabel: 'Komponen Surat Gugatan',
+    question: 'Manakah urutan sistematika penyusunan surat gugatan TUN yang benar menurut panduan perkuliahan?',
+    options: [
+      'Petitum → Posita → Replik → Identitas Para Pihak',
+      'Identitas Para Pihak → Objek Sengketa → Kewenangan Pengadilan → Upaya Administratif → Tenggang Waktu → Kepentingan Penggugat → Posita → Petitum',
+      'Upaya Administratif → Putusan Sela → Eksepsi → Petitum',
+      'Surat Kuasa → Berita Acara Sidang → Posita → Petitum'
+    ],
+    correctIndex: 1,
+    explanation: 'Sistematika lengkap surat gugatan di PTUN memuat 8 elemen berurutan: Identitas Para Pihak, Objek Sengketa, Kewenangan Pengadilan, Upaya Administratif, Tenggang Waktu, Kepentingan Penggugat yang Dirugikan, Posita (Fundamentum Petendi), dan Petitum.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 12: Gugatan di PTUN)'
+  },
+
+  // 13. Identitas Para Pihak
+  {
+    id: 'ptun-amelia-18',
+    topicId: 13,
+    topicTitle: 'Topik 13: Identitas Para Pihak',
+    type: 'conceptual',
+    typeLabel: 'Pasal 56 UU Peratun',
+    question: 'Apakah persyaratan formal yang wajib dicantumkan mengenai identitas Tergugat menurut Pasal 56 UU Peratun?',
+    options: [
+      'Nama lengkap pribadi pejabat, agama, status pernikahan, dan nama anak-anaknya',
+      'Nama jabatan resmi dan tempat kedudukan instansi Tergugat',
+      'Nomor rekening bank dinas Tergugat',
+      'Izin tertulis dari atasan Tergugat untuk digugat'
+    ],
+    correctIndex: 1,
+    explanation: 'Sesuai Pasal 56 UU Peratun, identitas Tergugat wajib mencantumkan nama jabatan resmi (misal: "Bupati Malang", "Kepala Dinas Tenaga Kerja Provinsi Jawa Timur") dan tempat kedudukan resmi instansi Tergugat.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 13: Identitas Para Pihak)'
+  },
+
+  // 14. Objek Gugatan dalam Surat Gugatan
+  {
+    id: 'ptun-amelia-19',
+    topicId: 14,
+    topicTitle: 'Topik 14: Objek Gugatan dalam Surat Gugatan',
+    type: 'conceptual',
+    typeLabel: 'Kaidah Penulisan Objek',
+    question: 'Bagaimanakah kaidah praktis penulisan objek sengketa pada bagian "Objek Gugatan" dalam surat gugatan PTUN?',
+    options: [
+      'Harus menceritakan seluruh kronologi perselisihan sejak awal peristiwa secara detail',
+      'Harus ditulis secara singkat, padat, dan presisi (nomor, tanggal, perihal SK); sedangkan uraian kronologi detail wajib ditempatkan pada Posita',
+      'Cukup ditulis kata "Surat Keputusan Tergugat" tanpa menyebutkan nomor dan tanggal',
+      'Harus mencantumkan kutipan undang-undang yang dilanggar'
+    ],
+    correctIndex: 1,
+    explanation: 'Pada bagian Objek Gugatan, objek sengketa dirumuskan secara singkat, jelas, dan spesifik (nomor SK, tanggal terbit, instansi penerbit, perihal). Kronologi sejarah sengketa dan latar belakang fakta ditempatkan di bagian Posita (Fundamentum Petendi).',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 14: Objek Gugatan)'
+  },
+
+  // 15. Kewenangan Pengadilan yang Dituju
+  {
+    id: 'ptun-amelia-20',
+    topicId: 15,
+    topicTitle: 'Topik 15: Kewenangan Pengadilan yang Dituju',
+    type: 'scenario',
+    typeLabel: 'Kompetensi Relatif',
+    question: 'Seorang warga beralamat di Surabaya menggugat Surat Keputusan yang diterbitkan oleh Walikota Malang. Berdasarkan asas umum kompetensi relatif (Pasal 54 ayat 1 UU Peratun), pengadilan manakah yang berwenang mengadili perkara tersebut?',
+    options: [
+      'PTUN Surabaya, karena tempat tinggal Penggugat berada di Surabaya',
+      'PTUN Surabaya yang wilayah hukumnya membawahi Kota Malang (tempat kedudukan Tergugat)',
+      'Pengadilan Negeri Malang karena menyangkut pejabat daerah',
+      'Mahkamah Agung langsung di Jakarta'
+    ],
+    correctIndex: 1,
+    explanation: 'Kompetensi relatif menganut asas Actor Sequitur Forum Rei (Pasal 54 ayat 1 UU Peratun): gugatan diajukan ke pengadilan yang wilayah hukumnya meliputi tempat kedudukan Tergugat (dalam hal ini PTUN Surabaya yang membawahi wilayah kedudukan Walikota Malang).',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 15: Kewenangan Pengadilan)'
+  },
+
+  // 16. Upaya Administratif
+  {
+    id: 'ptun-amelia-21',
+    topicId: 16,
+    topicTitle: 'Topik 16: Upaya Administratif',
+    type: 'conceptual',
+    typeLabel: 'Tingkatan Upaya Administratif',
+    question: 'Berdasarkan Pasal 75 UU No. 30 Tahun 2014 jo. Perma No. 6 Tahun 2018, bagaimanakah tahapan upaya administratif yang wajib ditempuh sebelum mendaftarkan gugatan ke PTUN?',
+    options: [
+      'Langsung mendaftar ke PTUN tanpa perlu mengajukan keberatan',
+      'Upaya Administratif melalui KEBERATAN kepada pejabat penerbit keputusan, lalu BANDING ADMINISTRATIF kepada atasan pejabat/badan banding, baru kemudian GUGATAN ke PTUN',
+      'Mediasi di kepolisian, lalu ke Pengadilan Tinggi, baru ke PTUN',
+      'Musyawarah adat desa sebelum mendaftarkan gugatan'
+    ],
+    correctIndex: 1,
+    explanation: 'Pasal 75 UU AP jo. Perma 6/2018 mewajibkan prosedur bertingkat: pengajuan Keberatan kepada pejabat penerbit KTUN; jika ditolak, dilanjutkan Banding Administratif kepada atasan pejabat/badan banding khusus; jika tetap ditolak, barulah dibuka pintu gugatan ke PTUN.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 16: Upaya Administratif)'
+  },
+
+  // 17. Tenggang Waktu Gugatan
+  {
+    id: 'ptun-amelia-22',
+    topicId: 17,
+    topicTitle: 'Topik 17: Tenggang Waktu Gugatan',
+    type: 'scenario',
+    typeLabel: 'Kedaluwarsa 90 Hari',
+    question: 'Penggugat menerima surat keputusan penolakan banding administratif pada tanggal 1 Februari 2024. Penggugat baru mendaftarkan gugatannya ke PTUN pada hari ke-95. Apakah putusan yang dijatuhkan oleh majelis hakim?',
+    options: [
+      'Gugatan dikabulkan karena ada iktikad baik dari penggugat',
+      'Gugatan dinyatakan Tidak Dapat Diterima (Niet Ontvankelijke Verklaard / NO) karena telah lewat waktu (kedaluwarsa 90 hari)',
+      'Gugatan dialihkan menjadi sengketa perdata biasa',
+      'Tergugat diwajibkan membayar uang paksa (dwangsom)'
+    ],
+    correctIndex: 1,
+    explanation: 'Berdasarkan Pasal 55 UU Peratun jo. Pasal 5 Perma No. 6 Tahun 2018, tenggang waktu mengajukan gugatan adalah 90 hari kalender sejak diterimanya keputusan upaya administratif terakhir. Pendaftaran pada hari ke-95 mengakibatkan gugatan kedaluwarsa dan wajib diputus NO.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 17: Tenggang Waktu Gugatan)'
+  },
+
+  // 18. Kepentingan Penggugat yang Dirugikan
+  {
+    id: 'ptun-amelia-23',
+    topicId: 18,
+    topicTitle: 'Topik 18: Kepentingan Penggugat yang Dirugikan',
+    type: 'conceptual',
+    typeLabel: 'Legal Standing Penggugat',
+    question: 'Apakah makna dari doktrin "Point d’intérêt, point d’action" dalam hukum acara PTUN?',
+    options: [
+      'Setiap warga negara berhak menggugat semua keputusan pemerintah tanpa syarat',
+      'Hanya pihak yang memiliki kepentingan hukum nyata yang terkena kerugian langsung yang berhak mengajukan gugatan ke PTUN',
+      'Penggugat wajib menyetorkan sejumlah uang jaminan kepentingan ke kas negara',
+      'Gugatan hanya dapat diajukan jika didukung oleh minimal 100 orang'
+    ],
+    correctIndex: 1,
+    explanation: '"Point d’intérêt, point d’action" (ada kepentingan, baru ada hak menuntut) menegaskan syarat legal standing menurut Pasal 53 UU Peratun: penggugat harus dapat membuktikan bahwa hak atau kepentingannya dirugikan secara langsung oleh KTUN yang disengketakan.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 18: Kepentingan Penggugat)'
+  },
+
+  // 19. Alasan Gugatan
+  {
+    id: 'ptun-amelia-24',
+    topicId: 19,
+    topicTitle: 'Topik 19: Alasan-Alasan Gugatan',
+    type: 'conceptual',
+    typeLabel: 'Détournement de Pouvoir',
+    question: 'Apakah yang dimaksud dengan alasan gugatan "Penyalahgunaan Wewenang" (Détournement de Pouvoir)?',
+    options: [
+      'Pejabat mengeluarkan keputusan tanpa memiliki nomor registrasi dinas',
+      'Pejabat menggunakan wewenangnya untuk tujuan yang berbeda dari tujuan yang diberikan oleh peraturan perundang-undangan yang mendasarinya',
+      'Pejabat memutus perkara pidana di kantor kejaksaan',
+      'Pejabat terlambat masuk kantor saat jam dinas'
+    ],
+    correctIndex: 1,
+    explanation: 'Penyalahgunaan wewenang (détournement de pouvoir) terjadi manakala seorang pejabat TUN menggunakan wewenang jabatannya untuk tujuan lain yang menyimpang dari tujuan pemberian wewenang tersebut oleh undang-undang, misalnya untuk motif pribadi atau kelompok.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 19: Alasan Gugatan)'
+  },
+
+  // 20. Posita
+  {
+    id: 'ptun-amelia-25',
+    topicId: 20,
+    topicTitle: 'Topik 20: Posita (Fundamentum Petendi)',
+    type: 'conceptual',
+    typeLabel: 'Kaidah Penyusunan Posita',
+    question: 'Apakah empat prinsip utama yang wajib dipedomani dalam menyusun Posita menurut bahan ajar perkuliahan?',
+    options: [
+      'Singkat, Padat, Cepat, dan Murah',
+      'Cermat, Jelas, Teliti, dan Kronologis',
+      'Abstrak, Umum, Rahasia, dan Sepihak',
+      'Tegas, Keras, Subjektif, dan Emosional'
+    ],
+    correctIndex: 1,
+    explanation: 'Posita surat gugatan wajib disusun secara: CERMAT (tepat mengidentifikasi pasal dan AUPB), JELAS (bahasa hukum lugas tidak ambigu), TELITI (memuat detail tanggal, nomor surat, bukti), dan KRONOLOGIS (urut urutan peristiwanya).',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 20: Posita)'
+  },
+
+  // 21. Petitum
+  {
+    id: 'ptun-amelia-26',
+    topicId: 21,
+    topicTitle: 'Topik 21: Petitum Surat Gugatan',
+    type: 'scenario',
+    typeLabel: 'Tuntutan Rehabilitasi',
+    question: 'Seorang PNS yang diberhentikan secara sewenang-wenang mengajukan gugatan ke PTUN. Selain menuntut pembatalan SK pemberhentian, tuntutan apakah yang dapat dimohonkan secara khusus berdasarkan Pasal 121 UU Peratun?',
+    options: [
+      'Tuntutan agar bupati dijatuhi hukuman kurungan',
+      'Tuntutan rehabilitasi untuk memulihkan hak-hak dalam kemampuan, kedudukan, harkat, dan martabatnya sebagai PNS seperti semula',
+      'Tuntutan penyerahan mobil dinas bupati kepada penggugat',
+      'Tuntutan pembubaran badan kepegawaian daerah'
+    ],
+    correctIndex: 1,
+    explanation: 'Berdasarkan Pasal 121 UU Peratun, dalam sengketa kepegawaian, penggugat dapat menuntut rehabilitasi, yaitu pemulihan hak-hak penggugat dalam kemampuan, kedudukan, harkat, dan martabatnya sebagai pegawai negeri seperti keadaan semula sebelum keputusan diterbitkan.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 21: Petitum)'
+  },
+
+  // 22. e-Court
+  {
+    id: 'ptun-amelia-27',
+    topicId: 22,
+    topicTitle: 'Topik 22: Tahapan Pendaftaran Gugatan (e-Court)',
+    type: 'conceptual',
+    typeLabel: 'Prosedur e-Court',
+    question: 'Apakah fungsi diterbitkannya e-SKUM dengan nomor Virtual Account dalam pendaftaran perkara melalui sistem e-Court?',
+    options: [
+      'Untuk melakukan verifikasi nomor pokok wajib pajak penggugat',
+      'Sebagai sarana pembayaran panjar biaya perkara secara elektronik (e-Payment) sebelum verifikasi dan registrasi perkara',
+      'Sebagai tanda bukti sah putusan akhir perkara telah dijatuhkan',
+      'Sebagai surat izin penundaan sidang terbuka'
+    ],
+    correctIndex: 1,
+    explanation: 'e-SKUM (Surat Kuasa Untuk Membayar elektronik) memuat taksiran panjar biaya perkara dan nomor Virtual Account perbankan untuk pembayaran elektronik (e-Payment). Setelah pembayaran terkonfirmasi sistem, berkas diproses ke Meja I dan Panitera Muda untuk registrasi resmi.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 22: e-Court)'
+  },
+
+  // 23. Dismissal Proses
+  {
+    id: 'ptun-amelia-28',
+    topicId: 23,
+    topicTitle: 'Topik 23: Proses Dismissal',
+    type: 'conceptual',
+    typeLabel: 'Wewenang Dismissal Ketua PTUN',
+    question: 'Siapakah pejabat peradilan yang berwenang memimpin proses dismissal dan dalam forum apakah pemeriksaan tersebut diselenggarakan menurut Pasal 62 UU Peratun?',
+    options: [
+      'Majelis Hakim dalam sidang terbuka untuk umum',
+      'Ketua Pengadilan Tata Usaha Negara dalam Rapat Permusyawaratan tertutup',
+      'Panitera Sekretaris di ruang mediasi terbuka',
+      'Ketua Mahkamah Agung di Jakarta'
+    ],
+    correctIndex: 1,
+    explanation: 'Dismissal proses adalah wewenang Ketua PTUN (atau hakim yang ditunjuk sebagai rapporteur) yang dilaksanakan dalam Rapat Permusyawaratan tertutup untuk menyaring gugatan sebelum masuk ke persidangan terbuka.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 23: Dismissal Proses)'
+  },
+
+  // 24. Pemeriksaan Persiapan
+  {
+    id: 'ptun-amelia-29',
+    topicId: 24,
+    topicTitle: 'Topik 24: Pemeriksaan Persiapan',
+    type: 'conceptual',
+    typeLabel: 'Pasal 63 UU Peratun',
+    question: 'Berapa harikah batas waktu maksimal yang diberikan hakim kepada Penggugat untuk menyempurnakan gugatan dalam tahap Pemeriksaan Persiapan?',
+    options: [
+      '14 hari kerja sejak sidang dibuka',
+      '30 (tiga puluh) hari kalender sejak petunjuk perbaikan diberikan',
+      '90 hari kalender mengikuti batas kedaluwarsa gugatan',
+      '7 hari kalender tanpa perpanjangan'
+    ],
+    correctIndex: 1,
+    explanation: 'Berdasarkan Pasal 63 ayat (3) UU Peratun, penggugat diberi batas waktu maksimal 30 (tiga puluh) hari untuk menyempurnakan gugatannya. Jika batas waktu 30 hari lewat tanpa perbaikan, hakim memutus gugatan tidak dapat diterima.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 24: Pemeriksaan Persiapan)'
+  },
+
+  // 25 & 26. Acara Singkat (Verzet)
+  {
+    id: 'ptun-amelia-30',
+    topicId: 26,
+    topicTitle: 'Topik 26: Acara Singkat (Pemeriksaan Perlawanan)',
+    type: 'conceptual',
+    typeLabel: 'Sifat Putusan Perlawanan',
+    question: 'Jika perlawanan (verzet) Penggugat terhadap penetapan dismissal DITOLAK oleh pengadilan dalam acara singkat, apakah upaya hukum lanjutan yang dapat diajukan?',
+    options: [
+      'Dapat diajukan banding ke Pengadilan Tinggi Tata Usaha Negara dalam 14 hari',
+      'Dapat diajukan kasasi langsung ke Mahkamah Agung',
+      'TIDAK DAPAT diajukan upaya hukum apa pun karena putusan penolakan perlawanan bersifat final dan mengikat',
+      'Dapat meminta fatwa hukum kepada Kementerian Hukum dan HAM'
+    ],
+    correctIndex: 2,
+    explanation: 'Pasal 62 ayat (6) UU Peratun menegaskan bahwa terhadap putusan pengadilan yang menolak perlawanan (verzet) tidak dapat digunakan upaya hukum apa pun (bersifat final dan mengikat). Perkara resmi tertutup.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 26: Acara Singkat)'
+  },
+
+  // 27. Acara Cepat
+  {
+    id: 'ptun-amelia-31',
+    topicId: 27,
+    topicTitle: 'Topik 27: Acara Cepat',
+    type: 'conceptual',
+    typeLabel: 'Susunan Hakim Acara Cepat',
+    question: 'Bagaimanakah susunan hakim yang memeriksa perkara dalam Acara Cepat menurut Pasal 99 UU Peratun?',
+    options: [
+      'Majelis Hakim yang terdiri dari 3 orang hakim',
+      'Diperiksa dan diputus oleh Hakim Tunggal',
+      'Diperiksa oleh Ketua PTUN bersama panitera tanpa hakim anggota',
+      'Diperiksa oleh 5 orang hakim agung'
+    ],
+    correctIndex: 1,
+    explanation: 'Berdasarkan Pasal 99 ayat (1) UU Peratun, pemeriksaan dengan acara cepat dilakukan oleh Hakim Tunggal demi efisiensi dan kecepatan penanganan perkara mendesak.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 27: Acara Cepat)'
+  },
+
+  // 28. Acara Biasa
+  {
+    id: 'ptun-amelia-32',
+    topicId: 28,
+    topicTitle: 'Topik 28: Acara Biasa (Alur Persidangan Lengkap)',
+    type: 'conceptual',
+    typeLabel: 'Alur Tahapan Persidangan',
+    question: 'Dalam persidangan acara biasa, setelah tahap Replik dari Penggugat, tahapan apakah yang langsung menyusul berikutnya?',
+    options: [
+      'Pembacaan Putusan Akhir',
+      'Duplik dari Tergugat',
+      'Pemeriksaan Persiapan Ulang',
+      'Rapat Permusyawaratan Dismissal'
+    ],
+    correctIndex: 1,
+    explanation: 'Urutan dialektika beracara di PTUN: Pembacaan Gugatan → Jawaban Tergugat → Replik Penggugat → DUPLIK Tergugat → Pembuktian → Kesimpulan → Putusan.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 28: Acara Biasa)'
+  },
+
+  // 30. Pembuktian
+  {
+    id: 'ptun-amelia-33',
+    topicId: 30,
+    topicTitle: 'Topik 30: Hukum Pembuktian di PTUN',
+    type: 'conceptual',
+    typeLabel: 'Alat Bukti Primer',
+    question: 'Apakah alat bukti yang paling primer (utama) dalam sengketa tata usaha negara menurut ketentuan Pasal 100 UU Peratun?',
+    options: [
+      'Keterangan Saksi mata',
+      'Surat atau Tulisan resmi / naskah dinas',
+      'Pengakuan sepihak Tergugat di media massa',
+      'Sumpah pemutus (decisoir eed)'
+    ],
+    correctIndex: 1,
+    explanation: 'Karena sengketa TUN adalah sengketa mengenai keabsahan penetapan tertulis dan dokumen birokrasi, maka alat bukti SURAT ATAU TULISAN (akta otentik, surat dinas, register resmi) menempati kedudukan paling utama dalam pembuktian di PTUN.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 30: Pembuktian)'
+  },
+
+  // 33. Putusan
+  {
+    id: 'ptun-amelia-34',
+    topicId: 33,
+    topicTitle: 'Topik 33: Putusan Pengadilan TUN',
+    type: 'conceptual',
+    typeLabel: 'Empat Varian Putusan',
+    question: 'Apakah empat jenis amar putusan akhir pengadilan tingkat pertama menurut Pasal 97 ayat (7) UU Peratun?',
+    options: [
+      'Bebas, Lepas dari segala tuntutan hukum, Terbukti bersalah, dan Denda',
+      'Gugatan Gugur, Gugatan Tidak Diterima (NO), Gugatan Ditolak, dan Gugatan Dikabulkan',
+      'Ganti Rugi, Sita Eksekusi, Kurungan Pengganti, dan Uang Paksa',
+      'Penetapan Sementara, Putusan Sela, Putusan Kasasi, dan Peninjauan Kembali'
+    ],
+    correctIndex: 1,
+    explanation: 'Pasal 97 ayat (7) UU Peratun menetapkan secara limitatif 4 jenis putusan akhir pengadilan TUN: 1. Gugatan gugur; 2. Gugatan tidak diterima (Niet Ontvankelijke Verklaard / NO); 3. Gugatan ditolak; 4. Gugatan dikabulkan.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 33: Putusan PTUN)'
+  },
+
+  // 34. Upaya Hukum
+  {
+    id: 'ptun-amelia-35',
+    topicId: 34,
+    topicTitle: 'Topik 34: Upaya Hukum di PTUN',
+    type: 'conceptual',
+    typeLabel: 'Tenggang Waktu Banding',
+    question: 'Berapa harikah batas waktu pengajuan permohonan pemeriksaan Banding ke Pengadilan Tinggi Tata Usaha Negara (PTTUN) sejak putusan PTUN diberitahukan?',
+    options: [
+      '14 (empat belas) hari kalender terhitung sejak hari putusan diberitahukan secara sah',
+      '30 hari kalender sejak pengucapan putusan',
+      '90 hari kalender mengikuti tenggang waktu gugatan pertama',
+      '180 hari sejak salinan putusan diunggah ke SIPP'
     ],
     correctIndex: 0,
-    explanation: 'Berdasarkan PDF Halaman 18, jika dalam persidangan tersebut ada pihak yang tidak hadir, maka penundaan sidang selanjutnya tidak boleh lebih dari 6 hari.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 18, Bagian 6.c Acara Biasa)'
+    explanation: 'Berdasarkan Pasal 123 ayat (1) UU Peratun, permohonan pemeriksaan tingkat banding ke PTTUN diajukan secara tertulis dalam tenggang waktu 14 (empat belas) hari setelah putusan pengadilan diberitahukan secara sah kepada para pihak.',
+    referenceSource: 'Hukum Acara PTUN — Amelia Ayu Paramitha, S.H., M.H. (Topik 34: Upaya Hukum)'
   },
-
-  // TOPIK 7: JAWABAN GUGATAN
-  {
-    id: 'ptun-soal-28',
-    topicId: 7,
-    topicTitle: 'Jawaban Gugatan Tergugat',
-    type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Apakah yang dimaksud dengan Eksepsi dalam struktur surat jawaban Tergugat di PTUN?',
-    options: [
-      'Tuntutan ganti rugi materiil terhadap kerugian kas negara',
-      'Keberatan atau bantahan terhadap gugatan yang tidak menyentuh pokok perkara, melainkan menyangkut kewenangan absolut, kewenangan relatif, tenggang waktu daluwarsa, atau cacat prosedural lain',
-      'Pengakuan Tergugat atas seluruh dalil yang diajukan Penggugat',
-      'Permohonan banding ke tingkat pengadilan tinggi administrasi'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 19, Eksepsi adalah keberatan atau bantahan terhadap gugatan yang tidak menyentuh pokok perkara, seperti kewenangan absolut atau relatif pengadilan, atau hal-hal prosedural lain.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 19, Bagian 7.a.ii Menyusun Struktur Jawaban)'
-  },
-
-  // TOPIK 8: REPLIK
-  {
-    id: 'ptun-soal-29',
-    topicId: 8,
-    topicTitle: 'Replik Penggugat',
-    type: 'conceptual',
-    typeLabel: 'Konseptual',
-    question: 'Apakah hak istimewa yang dimiliki Penggugat saat menyampaikan Replik menurut hukum acara peradilan tata usaha negara?',
-    options: [
-      'Penggugat berhak mencabut wewenang hakim tunggal',
-      'Penggugat dapat mengubah alasan yang mendasari gugatannya, asal disertai alasan yang cukup serta tidak merugikan kepentingan Tergugat',
-      'Penggugat dapat mengubah petitum pembatalan menjadi tuntutan pidana penjara',
-      'Penggugat berhak melarang Tergugat mengajukan duplik'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 19, dalam mengajukan replik, Penggugat dapat mengubah alasan yang mendasari gugatannya, asal disertai dengan alasan yang cukup serta tidak merugikan kepentingan Tergugat.',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 19, Bagian 8 Replik)'
-  },
-  {
-    id: 'ptun-soal-30',
-    topicId: 8,
-    topicTitle: 'Replik Penggugat',
-    type: 'mcq',
-    typeLabel: 'Pilihan Ganda',
-    question: 'Manakah di bawah ini yang merupakan empat komponen isi/inti surat Replik Penggugat di PTUN?',
-    options: [
-      'Somasi, mediasi, musyawarah, dan eksekusi',
-      'Bantahan atas Eksepsi, Bantahan atas Pokok Perkara, Penguatan Dalil (doktrin, ahli, kebiasaan), dan Petitum (permohonan menolak eksepsi & jawaban Tergugat serta mengabulkan gugatan)',
-      'Identitas saksi, bukti visum, laporan polisi, dan tuntutan ganti rugi',
-      'Surat kuasa, panjar biaya, berita acara sumpah, dan putusan sela'
-    ],
-    correctIndex: 1,
-    explanation: 'Berdasarkan PDF Halaman 20, isi/inti Replik terdiri atas: (i) Bantahan atas Eksepsi, (ii) Bantahan atas Pokok Perkara, (iii) Penguatan Dalil (bukti atau referensi tambahan seperti doktrin, ahli, kebiasaan), dan (iv) Petitum (permohonan menolak seluruh eksepsi dan jawaban Tergugat serta mengabulkan seluruh gugatan Penggugat).',
-    referenceSource: 'Panduan Belajar UTS PTUN (Halaman 20, Bagian 8 butir i–iv)'
-  }
 ];

@@ -119,6 +119,38 @@
   will-change: transform;
 }
 
+/* Subtle, calm 3D companion motion */
+@keyframes companionSway {
+  0%, 100% {
+    transform: scale(1) translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.018) translate3d(-3px, -8px, 0) rotate(0.8deg);
+  }
+}
+
+.animate-companion-sway {
+  animation: companionSway 10s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Ambient companion pulse glow */
+@keyframes companionGlowPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.06);
+  }
+}
+
+.animate-companion-glow {
+  animation: companionGlowPulse 8s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   html {

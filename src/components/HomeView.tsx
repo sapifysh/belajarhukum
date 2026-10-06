@@ -283,6 +283,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <span>{HUKUM_PTUN_METADATA.credits}</span>
                   <span aria-hidden="true" className="text-slate-600">·</span>
                   <span>{HUKUM_PTUN_METADATA.courseCode}</span>
+                  <span aria-hidden="true" className="text-slate-600">·</span>
+                  <span className="text-slate-300 font-light">{HUKUM_PTUN_METADATA.lecturer}</span>
                 </div>
 
                 {/* 2. Course name */}
@@ -297,15 +299,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </button>
                   {/* 3. Short description */}
                   <p className="mt-1.5 sm:mt-2 text-[14px] sm:text-base text-slate-300 font-light leading-relaxed">
-                    Materi dan latihan soal untuk persiapan UTS.
+                    Materi lengkap Hukum Acara PTUN berdasarkan bahan ajar Amelia Ayu Paramitha, S.H., M.H.: wewenang, subjek, objek KTUN, surat gugatan, e-Court, dismissal, hingga pembuktian dan putusan.
                   </p>
                 </div>
 
                 {/* 4. Coverage */}
                 <div className="pt-0.5 sm:pt-1 flex flex-wrap items-center gap-2 sm:gap-3 text-[12px] sm:text-xs text-slate-400 font-light">
-                  <span>Cakupan: Topik 1 – 8</span>
+                  <span>Cakupan: Topik 1 – 34</span>
                   <span aria-hidden="true" className="hidden sm:inline text-slate-600">·</span>
-                  <span className="hidden sm:inline">Silabus Substantif Topik 1 – 8</span>
+                  <span className="hidden sm:inline">Silabus Komprehensif HAPTUN Amelia.pptx</span>
                   {studiedCountPtun > 0 && (
                     <>
                       <span aria-hidden="true" className="text-slate-600">·</span>
@@ -344,7 +346,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       Materi Bacaan
                     </div>
                     <div className="hidden sm:block text-[11px] text-slate-400 font-light mt-0.5">
-                      8 Topik Substantif Silabus UTS Komprehensif
+                      34 Topik Silabus Lengkap Berdasarkan Materi Resmi
                     </div>
                   </div>
                 </div>
@@ -364,7 +366,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       Latihan Soal
                     </div>
                     <div className="hidden sm:block text-[11px] text-slate-400 font-light mt-0.5">
-                      30 Soal & Pembahasan (Termasuk Soal Resmi PDF)
+                      35 Soal & Pembahasan Komprehensif
                     </div>
                   </div>
                 </div>
